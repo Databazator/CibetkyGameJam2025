@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6844283739727309548}
   - component: {fileID: 6015630743182617738}
   - component: {fileID: 7716024657664224975}
+  - component: {fileID: 1164315743782899533}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -126,11 +127,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ba790a733b96e40976bed1146596aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 5
-  health: 100
-  damage: 10
-  visibleRange: 20
-  shootingRange: 15
-  attackCooldown: 2
+  speed: 10
+  health: 1
+  damage: 5
+  visibleRange: 30
+  shootingRange: 10
+  attackCooldown: 1
+  walkCooldown: 1
+  magazineSize: 1
+  barrelsCount: 1
+  magazineDelay: 0
+  coneSize: 0
   enemyName: Zombie
   projectile: {fileID: 7434062762161635128, guid: 79f08f0e5e6ce7944aaa444006ae8211, type: 3}
+  roomArea: {fileID: 0}
+--- !u!143 &1164315743782899533
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166636918498209274}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}

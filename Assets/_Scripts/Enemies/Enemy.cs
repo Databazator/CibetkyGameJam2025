@@ -12,7 +12,12 @@ public class EnemyBehavior : MonoBehaviour
     private float lastAttackTime = -2f;
     public float walkCooldown = 3f;
     private float lastWalkingTime = -3f;
-    
+    public int magazineSize = 1;
+    public int barrelsCount = 1;
+    private int currentAmmo;
+    public float magazineDelay = 1f;
+    public float coneSize = 0f;
+
     public string enemyName;
     public GameObject projectile;
     public GameObject roomArea;
@@ -23,7 +28,9 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentAmmo = magazineSize;
+        lastAttackTime = -attackCooldown;
+        lastWalkingTime = -walkCooldown;
     }
 
     // Update is called once per frame
@@ -50,12 +57,18 @@ public class EnemyBehavior : MonoBehaviour
         wanderPosition = Vector3.zero; // Reset wander position when engaging player
         
         // If in cooldown, do nothing
-        if (Time.time - lastAttackTime < attackCooldown) return;
+        if (currentAmmo == 0 && Time.time - lastAttackTime < attackCooldown) return;
+
+        if (currentAmmo == 0)
+        {
+            // Cooldown finished, reload
+            currentAmmo = magazineSize;
+        }
 
         // Get to shooting range if not already there
         if (distance > shootingRange - 2f && moved || distance > shootingRange)
         {
-            transform.position += direction * speed * Time.deltaTime;
+            Move(direction);
             moved = true;
         }
         else
@@ -74,26 +87,51 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+    void Move(Vector3 direction)
+    {
+        GetComponent<CharacterController>().Move(direction * speed * Time.deltaTime);
+    }
+
     void Wander()
     {
-        Debug.Log(enemyName + " is wandering.");
         // Wander to a random direction slowly
         if (wanderPosition == Vector3.zero || Vector3.Distance(transform.position, wanderPosition) < 1f)
         {
+            Debug.Log(enemyName + " is looking for wander target.");
             // Don't wander outside the room area
-            Vector3 randomDirection = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f));
-            Vector3 potentialPosition = transform.position + randomDirection;
-            if (roomArea.GetComponent<Collider>().bounds.Contains(potentialPosition))
-            {
-                wanderPosition = potentialPosition;
-            }
+            SetNewWanderPosition();
             lastWalkingTime = Time.time;
-        } else {
+        }
+        else
+        {
+            Debug.Log(enemyName + " is wandering.");
             // If not on walking cooldown, move towards wander position
-            if (Time.time - lastWalkingTime >= walkCooldown)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, wanderPosition, speed * Time.deltaTime);
-            }
+            if (Time.time - lastWalkingTime < walkCooldown) return;
+            
+            Move((wanderPosition - transform.position).normalized);
+            // TODO: On collision, stop wandering
+            // if (GetComponent<CharacterController>().isGrounded == false)
+            // {
+            //     wanderPosition = Vector3.zero;
+            // }
+        }
+    }
+
+    void SetNewWanderPosition()
+    {
+        Vector3 randomDirection = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f)).normalized * Random.Range(5f, 15f);
+        Vector3 potentialPosition = transform.position + randomDirection;
+
+        // Set temporarily y to 0 for bounds checking
+        potentialPosition.y = roomArea.transform.position.y;
+        if (roomArea.GetComponent<Collider>().bounds.Contains(potentialPosition))
+        {
+            potentialPosition.y = transform.position.y;
+            wanderPosition = potentialPosition;
+        }
+        else
+        {
+            Debug.Log(enemyName + " tried to set wander position outside room, retrying.");
         }
     }
 
@@ -101,9 +139,32 @@ public class EnemyBehavior : MonoBehaviour
     {
         Debug.Log(enemyName + " is shooting at the player!");
         // Eject a bullet towards the player
-        var bullet = Instantiate(projectile, transform.position, Quaternion.identity);
-        Vector3 shootDirection = (player.transform.position - transform.position).normalized;
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootDirection * 20f;
+        if (currentAmmo <= 0 || Time.time - lastAttackTime < magazineDelay) return;
+
+        for (int i = 0; i < barrelsCount; i++)
+        {
+            ShootSingleBullet(player, i);
+        }
+        currentAmmo -= barrelsCount;
         lastAttackTime = Time.time;
+    }
+
+    void ShootSingleBullet(GameObject player, int barrelIndex)
+    {
+        Vector3 shootDirection = (player.transform.position - transform.position).normalized;
+
+        // Apply cone spread, divide equally between barrels
+        float angleOffset = barrelsCount == 1
+            ? 0
+            : -coneSize / 2f + (coneSize / (barrelsCount - 1)) * (barrelIndex);
+        Quaternion rotation = Quaternion.AngleAxis(angleOffset, Vector3.up);
+        shootDirection = rotation * shootDirection;
+
+        // Instantiate projectile
+        GameObject bullet = Instantiate(projectile, transform.position + shootDirection * 1.5f, Quaternion.LookRotation(shootDirection));
+        // Set speed
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootDirection * 20f;
+        // Set bullet damage
+        bullet.GetComponent<ProjectileBehavior>().damage = damage;
     }
 }
