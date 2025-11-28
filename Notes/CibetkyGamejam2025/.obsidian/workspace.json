@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Player/Player.md",
+                "file": "Items/Item list.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Player"
+              "title": "Item list"
             }
           }
         ]
@@ -94,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Items/Item list.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Item list"
             }
           },
           {
@@ -112,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Items/Item list.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Item list"
             }
           },
           {
@@ -181,17 +183,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "fbed4d6f4f38f7d2",
+  "active": "c1acc724015f4337",
   "lastOpenFiles": [
-    "Items/Keywords/regain.md",
-    "Items/Keywords/move.md",
     "Items/Keywords/fury.md",
+    "Items/Keywords/regain.md",
+    "Items/Item list.md",
+    "Items/Keywords/move.md",
     "Items/Keywords/discount.md",
     "Items/Keywords/deflect.md",
     "Items/Keywords/dash.md",
     "Items/Keywords/attack.md",
     "Items/Keywords",
-    "Items/Item list.md",
     "Items",
     "Player/Player.md",
     "Player",
