@@ -1,0 +1,3 @@
+- Astral plane like in Control
+- Blocky and geometrical
+- Enemies are foreign - round, irregular, smokey

@@ -1,0 +1,3 @@
+- Clearing a room spawns an item
+- Item can be cleansed for Max HP or left in the room
+- Items do not despawn, player can go back to them

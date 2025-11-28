@@ -1,0 +1,3 @@
+- Have HP
+	- 1 if we want them to die on hit
+	- More if they're tougher
