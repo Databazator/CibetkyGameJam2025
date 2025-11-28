@@ -16,8 +16,11 @@ public class PlayerAttackEffect : MonoBehaviour
     {
         if (EffectHitLayer.LayerInMask(hit.gameObject.layer))
         {
-            GameObject hitTarget = hit.gameObject;
             Debug.LogWarning(hit.gameObject.name + " hit by attack");
+            if(hit.gameObject.CompareTag("Enemy"))
+            {
+                hit.gameObject.GetComponent<EnemyHealth>()?.DealDamage(AttackDamage);
+            }
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

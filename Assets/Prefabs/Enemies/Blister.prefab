@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6015630743182617738}
   - component: {fileID: 7716024657664224975}
   - component: {fileID: 1164315743782899533}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  - component: {fileID: -5260181077971757807}
+  m_Layer: 8
+  m_Name: Blister
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f34894fd36e8c624ba8c6c507901c96f, type: 2}
+  - {fileID: 2100000, guid: eaa9a38032c52dc44bd8e113b063b41a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,20 +128,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ba790a733b96e40976bed1146596aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 10
-  health: 1
-  damage: 5
-  visibleRange: 30
-  shootingRange: 10
-  attackCooldown: 1
-  walkCooldown: 1
-  magazineSize: 1
-  barrelsCount: 1
-  magazineDelay: 0
-  coneSize: 0
+  speed: 6
+  damage: 10
+  projectileSpeed: 10
+  visibleRange: 50
+  shootingRange: 30
+  attackCooldown: 5
+  walkCooldown: 3
+  magazineSize: 10
+  barrelsCount: 10
+  magazineDelay: 0.33
+  coneSize: 360
   enemyName: Zombie
   projectile: {fileID: 7434062762161635128, guid: 79f08f0e5e6ce7944aaa444006ae8211, type: 3}
-  roomArea: {fileID: 0}
+  roomBottomLeft: {x: 0, y: 0, z: 0}
+  roomTopRight: {x: 0, y: 0, z: 0}
 --- !u!143 &1164315743782899533
 CharacterController:
   m_ObjectHideFlags: 0
@@ -166,3 +168,16 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5260181077971757807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6166636918498209274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dee168127654a843a46436604dea847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 50

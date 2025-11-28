@@ -4,8 +4,8 @@ using System.Collections.Generic;
 public class EnemyBehavior : MonoBehaviour
 {
     public float speed = 5f;
-    public float health = 100f;
     public float damage = 10f;
+    public float projectileSpeed = 20f;
     public float visibleRange = 40f;
     public float shootingRange = 10f;
     public float attackCooldown = 2f;
@@ -20,8 +20,10 @@ public class EnemyBehavior : MonoBehaviour
 
     public string enemyName;
     public GameObject projectile;
-    public GameObject roomArea;
     
+    public Vector3 roomBottomLeft;
+    public Vector3 roomTopRight;
+
     private Vector3 wanderPosition;
     private bool moved = false;
 
@@ -38,7 +40,10 @@ public class EnemyBehavior : MonoBehaviour
     {
         // Find the player
         GameObject player = GameObject.FindWithTag("Player");
-        if (player == null) return;
+        if (player == null) {
+            Wander();
+            return;
+        }
 
         Vector3 direction = (player.transform.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -109,12 +114,13 @@ public class EnemyBehavior : MonoBehaviour
             if (Time.time - lastWalkingTime < walkCooldown) return;
             
             Move((wanderPosition - transform.position).normalized);
-            // TODO: On collision, stop wandering
-            // if (GetComponent<CharacterController>().isGrounded == false)
-            // {
-            //     wanderPosition = Vector3.zero;
-            // }
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // stop wandering
+        wanderPosition = Vector3.zero;
     }
 
     void SetNewWanderPosition()
@@ -123,10 +129,9 @@ public class EnemyBehavior : MonoBehaviour
         Vector3 potentialPosition = transform.position + randomDirection;
 
         // Set temporarily y to 0 for bounds checking
-        potentialPosition.y = roomArea.transform.position.y;
-        if (roomArea.GetComponent<Collider>().bounds.Contains(potentialPosition))
+        if (potentialPosition.x >= roomBottomLeft.x && potentialPosition.x <= roomTopRight.x &&
+            potentialPosition.z >= roomBottomLeft.z && potentialPosition.z <= roomTopRight.z)
         {
-            potentialPosition.y = transform.position.y;
             wanderPosition = potentialPosition;
         }
         else
@@ -163,8 +168,8 @@ public class EnemyBehavior : MonoBehaviour
         // Instantiate projectile
         GameObject bullet = Instantiate(projectile, transform.position + shootDirection * 1.5f, Quaternion.LookRotation(shootDirection));
         // Set speed
-        bullet.GetComponent<Rigidbody>().linearVelocity = shootDirection * 20f;
+        bullet.GetComponent<Rigidbody>().linearVelocity = shootDirection * projectileSpeed;
         // Set bullet damage
-        bullet.GetComponent<ProjectileBehavior>().damage = damage;
+        bullet.GetComponent<EnemyProjectile>().damage = damage;
     }
 }

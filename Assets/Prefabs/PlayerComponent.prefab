@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 7003856536798227933}
   - component: {fileID: 6727617338038586889}
   - component: {fileID: 7411191930247841736}
+  - component: {fileID: 6480861023644066001}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -405,6 +406,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6480861023644066001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6238601909383601307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961a6e2cb53c74f4283d8cde515158a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
 --- !u!1 &6377898499427780978
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +480,7 @@ Transform:
   m_GameObject: {fileID: 7719987637400420465}
   serializedVersion: 2
   m_LocalRotation: {x: 0.36650118, y: -0, z: -0, w: 0.9304176}
-  m_LocalPosition: {x: 0, y: 9, z: -8}
+  m_LocalPosition: {x: 0, y: 11, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -533,7 +547,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 8, z: -8}
+  FollowOffset: {x: 0, y: 10, z: -10}
 --- !u!1 &8268180072872950547
 GameObject:
   m_ObjectHideFlags: 0

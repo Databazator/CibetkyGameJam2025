@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProjectileBehavior : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     public float damage = 10f;
 
@@ -18,15 +18,16 @@ public class ProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Projectile collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
             // Apply damage to player
-            // var playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            // if (playerHealth != null)
-            // {
-            //     playerHealth.TakeDamage(damage);
-            // }
-            Destroy(gameObject);
+            var playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.DealDamage(damage);
+            }
         }
+        Destroy(gameObject);
     }
 }

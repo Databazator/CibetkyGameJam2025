@@ -29,9 +29,11 @@ public class EnemySpawning : MonoBehaviour
             );
             var enemy = Instantiate(enemyPrefab, spawnArea.transform.position + randomPosition, Quaternion.identity);
             // Set room
-            enemy.GetComponent<EnemyBehavior>().roomArea = spawnArea;
+            var behavior = enemy.GetComponent<EnemyBehavior>();
+            behavior.roomBottomLeft = spawnArea.transform.position - spawnArea.transform.localScale;
+            behavior.roomTopRight = spawnArea.transform.position + spawnArea.transform.localScale;
             // Set name
-            enemy.GetComponent<EnemyBehavior>().enemyName = "Enemy_" + i;
+            behavior.enemyName = "Enemy_" + i;
         }
     }
 }
