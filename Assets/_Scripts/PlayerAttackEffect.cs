@@ -14,20 +14,20 @@ public class PlayerAttackEffect : MonoBehaviour
 
     public void ColliderHit(Collider hit)
     {
-        Debug.LogWarning(hit.gameObject.name + " as hit");
+        if (EffectHitLayer.LayerInMask(hit.gameObject.layer))
+        {
+            GameObject hitTarget = hit.gameObject;
+            Debug.LogWarning(hit.gameObject.name + " hit by attack");
+        }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //DOVirtual.DelayedCall(HitboxLifetime, () => Destroy(HitboxObject));
-        DOVirtual.DelayedCall(EffectLifetime, () => Destroy(gameObject));
+        DOVirtual.DelayedCall(EffectLifetime, () => Destroy(this.gameObject));
 
         EffectShape.localScale = Vector3.zero;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-       EffectShape.DOScale(Vector3.one, EffectLifetime * 0.35f).SetEase(Ease.OutQuad);
+        EffectShape.DOScale(Vector3.one, EffectLifetime * 0.65f).SetEase(Ease.OutQuad);
     }
 }

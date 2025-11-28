@@ -34,11 +34,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    float RemapRange(float value, float min_a, float max_a, float min_b, float max_b)
-    {
-        return min_b + (value - min_a) * (max_b - min_b) / (max_a - min_a);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -137,11 +132,11 @@ public class PlayerController : MonoBehaviour
         float playerCamDist = Vector3.Distance(mainCam.transform.position, this.transform.position);
 
         Vector2 mouseScreenPosNormalized = new Vector2(
-            Mathf.Clamp01(RemapRange(mouseScreenPos.x, 0, mainCam.pixelWidth, 0f, 1f)),
-            Mathf.Clamp01(RemapRange(mouseScreenPos.y, 0, mainCam.pixelHeight, 0f, 1f))
+            Mathf.Clamp01(Utils.RemapRange(mouseScreenPos.x, 0, mainCam.pixelWidth, 0f, 1f)),
+            Mathf.Clamp01(Utils.RemapRange(mouseScreenPos.y, 0, mainCam.pixelHeight, 0f, 1f))
             );
 
-        float screenYDistMult = RemapRange(mouseScreenPosNormalized.y, 0, 1, 0.25f, 1.75f);
+        float screenYDistMult = Utils.RemapRange(mouseScreenPosNormalized.y, 0, 1, 0.25f, 1.75f);
         playerCamDist *= screenYDistMult;
         //Debug.Log($"mousePos: {mouseScreenPos}, normalized: {mouseScreenPosNormalized}, multedY: {screenYDistMult}");
         Vector3 mouseWorldSpace = mainCam.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, playerCamDist));
