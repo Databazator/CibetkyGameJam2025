@@ -33,6 +33,7 @@ public class PlayerAttackAbility : PlayerAbility
     void AttackEnd()
     {
         _isAttacking = false;
+        cooldownTimer = Cooldown;
     }
 
     private void Update()

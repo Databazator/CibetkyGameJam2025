@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
     bool CanUseAbilities()
     {
-        return DashAbility.CanUseAbility();// && AttackAbility.CanUseAbility();
+        return !DashAbility.AbilityInUse() && !AttackAbility.AbilityInUse();
     }
 
     void HandleAttack()
