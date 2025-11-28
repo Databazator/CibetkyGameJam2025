@@ -1,17 +1,24 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private PlayerInputActions _actions;
     private InputAction _movementAction;
     private InputAction _lookAction;
     private InputAction _attackAction;
     private InputAction _dashAction;
+
+
     public float MovementSpeed;
     public const float GRAVITY = 10f;
+    private Vector2 _lastMovementInput;
+
+    public PlayerAbility DashAbility;
+    public PlayerAbility AttackAbility;
     
     private CharacterController _charController;
     public Vector3 LookDirection = Vector3.forward;
@@ -30,21 +37,30 @@ public class PlayerMovement : MonoBehaviour
     float RemapRange(float value, float min_a, float max_a, float min_b, float max_b)
     {
         return min_b + (value - min_a) * (max_b - min_b) / (max_a - min_a);
-    }    
+    }
 
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
+        if (CanMove())
+        {
+            HandleMovement();
+        }
+
         HandleLookDirection();
 
-        HandleAttack();
-        HandleDash();
+        if (CanUseAbilities())
+        {
+            HandleAttack();
+            HandleDash();
+        }
     }
 
     void HandleMovement()
     {
         Vector2 input = _movementAction.ReadValue<Vector2>();
+
+        _lastMovementInput = input;
 
         Vector3 movementInput = new Vector3(input.x, 0, input.y);
 
@@ -58,17 +74,47 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    bool CanMove()
+    {
+        //cant movev if dashing
+        if (DashAbility.AbilityInUse())
+            return false;
+
+        return true;
+    }
+
+    bool CanUseAbilities()
+    {
+        return DashAbility.CanUseAbility();// && AttackAbility.CanUseAbility();
+    }
+
     void HandleAttack()
     {
-
+        if(AttackAbility.CanUseAbility())
+        {
+            if(_attackAction.ReadValue<float>() > 0f)
+            {
+                AttackAbility.TriggerAbility(LookDirection);
+            }
+        }
     }
 
     void HandleDash()
     {
-
+        if (DashAbility.CanUseAbility())
+        {
+            if (_dashAction.ReadValue<float>() > 0f)
+            {
+                // dash dir is based on absolute player input, if no input, dash in current look dir
+                Vector3 dashDirection = new Vector3(_lastMovementInput.x, 0, _lastMovementInput.y).normalized;
+                if(dashDirection == Vector3.zero)
+                {
+                    dashDirection = LookDirection;
+                }
+                DashAbility.TriggerAbility(dashDirection);
+            }
+        }
     }
-
-
 
     void HandleLookDirection()
     {
@@ -97,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
         float screenYDistMult = RemapRange(mouseScreenPosNormalized.y, 0, 1, 0.25f, 1.75f);
         playerCamDist *= screenYDistMult;
-        Debug.Log($"mousePos: {mouseScreenPos}, normalized: {mouseScreenPosNormalized}, multedY: {screenYDistMult}");
+        //Debug.Log($"mousePos: {mouseScreenPos}, normalized: {mouseScreenPosNormalized}, multedY: {screenYDistMult}");
         Vector3 mouseWorldSpace = mainCam.ScreenToWorldPoint(new Vector3(mouseScreenPos.x, mouseScreenPos.y, playerCamDist));
 
         mouseWorldSpace = new Vector3(mouseWorldSpace.x, transform.position.y, mouseWorldSpace.z);
