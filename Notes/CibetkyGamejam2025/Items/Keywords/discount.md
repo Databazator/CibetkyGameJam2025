@@ -1,0 +1,2 @@
+- discount to the cleansing rituals
+- makes the player spend less HP on the cleanse

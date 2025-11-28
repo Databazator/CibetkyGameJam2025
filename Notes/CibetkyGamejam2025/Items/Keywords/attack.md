@@ -1,0 +1,1 @@
+- attack strenght (how many HP we remove from enemies)

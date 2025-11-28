@@ -8,29 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f9dcd2d0f232f1e1",
+            "id": "c1acc724015f4337",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Player/Player.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
-            }
-          }
-        ]
-      },
-      {
-        "id": "f50eb26595c98c00",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2002a48f70003255",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Player"
             }
           }
         ]
@@ -166,12 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Items/Item list.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Item list"
             }
           }
         ]
@@ -192,8 +181,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "f9dcd2d0f232f1e1",
+  "active": "fbed4d6f4f38f7d2",
   "lastOpenFiles": [
+    "Items/Keywords/regain.md",
+    "Items/Keywords/move.md",
+    "Items/Keywords/fury.md",
+    "Items/Keywords/discount.md",
+    "Items/Keywords/deflect.md",
+    "Items/Keywords/dash.md",
+    "Items/Keywords/attack.md",
+    "Items/Keywords",
+    "Items/Item list.md",
+    "Items",
     "Player/Player.md",
     "Player",
     "Mechanics/Cleansing.md",
@@ -205,7 +204,6 @@
     "Levels/Level 2 Blue.md",
     "Levels/Level 1 Orange.md",
     "Levels/Level 3.md",
-    "Welcome.md",
-    "Items"
+    "Welcome.md"
   ]
 }
