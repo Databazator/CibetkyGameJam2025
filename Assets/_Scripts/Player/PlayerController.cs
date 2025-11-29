@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _lastAttackDirection;
     private Vector3 _lastDashDirection;
 
+    public Transform LookaheadNode;
+    private Vector3 _playerLookheadVector;
+
+    public float LookaheadAmount;
+    public float LookaheadSpeed;
+
     private Vector3 _lastMovementBlendingVector;
 
     public PlayerAbility DashAbility;
@@ -38,7 +44,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Animator?.SetBool("Dead", false);
     }
 
     // Update is called once per frame
@@ -64,6 +70,14 @@ public class PlayerController : MonoBehaviour
         }
 
         HandleAnimations();
+        UpdateLookahead();
+    }
+
+    private void UpdateLookahead()
+    {
+        Vector3 moveInputVec = new Vector3(_lastMovementInput.x, 0f, _lastMovementInput.y);
+        _playerLookheadVector = Vector3.Lerp(_playerLookheadVector, moveInputVec * LookaheadAmount, LookaheadSpeed * Time.deltaTime);
+        LookaheadNode.position = this.transform.position + _playerLookheadVector;
     }
 
     private void HandleAnimations()
