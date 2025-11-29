@@ -96,7 +96,7 @@ public class AltarController : MonoBehaviour
             if (_interactable && wasInteractPressed && _itemOnStand != null)
             {
                 // Trigger shopping UI
-                GameEvents.ItemFound.Invoke(_itemOnStand);
+                GameEvents.ItemFound?.Invoke(_itemOnStand);
                 _interactable = false;
             }
         }
