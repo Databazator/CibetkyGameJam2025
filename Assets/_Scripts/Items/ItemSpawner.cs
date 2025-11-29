@@ -9,6 +9,7 @@ public class ItemSpawner : MonoBehaviour
     public List<Item> items = new List<Item>();
     private PlayerHealth _playerHealth;
     public GameObject spawnTarget;
+    public GameObject altar;
 
     private List<Item> _commons;
     private List<Item> _uncommons;
@@ -30,7 +31,7 @@ public class ItemSpawner : MonoBehaviour
         _commons = items.FindAll(item => item.rarity is Item.Rarity.Common);
         _uncommons = items.FindAll(item => item.rarity is Item.Rarity.Uncommon);
         _rares = items.FindAll(item => item.rarity is Item.Rarity.Rare);
-        SpawnRandomItem();
+        // SpawnRandomItem();
     }
 
     /**
@@ -51,7 +52,10 @@ public class ItemSpawner : MonoBehaviour
         {
             Debug.Log("This shouldn't happen. We did not select any item");
         }
-        Instantiate(selectedItem, spawnPosition, Quaternion.identity);
+        // It isn't really necessary to spawn the prefab
+        // Instantiate(selectedItem, spawnPosition, Quaternion.identity);
+        AltarController altarController = altar.GetComponent<AltarController>();
+        altarController.PlaceItem(selectedItem);
     }
 
     private List<Item> SelectPool()
