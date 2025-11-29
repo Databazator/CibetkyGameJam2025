@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShopScreen : UIScreen
 {
@@ -29,12 +30,12 @@ public class ShopScreen : UIScreen
     public void SetItem(Item item)
     {
         _currentItem = item;
-        _itemNameLabel.text = item.ItemName;
-        _itemDescLabel.text = item.ItemDescription;
-        _itemImage.sprite = item.ItemIcon;
+        _itemNameLabel.text = item.itemName;
+        _itemDescLabel.text = item.itemDescription;
+        _itemImage.sprite = item.itemIcon;
         // Change tint of background image based on rarity
         Color glowColor = Color.white;
-        switch (item.ItemRarity)
+        switch (item.itemRarity)
         {
             case Item.Rarity.Common:
                 glowColor = new Color(192f / 255f, 192f / 255f, 192f / 255f); // Silver
