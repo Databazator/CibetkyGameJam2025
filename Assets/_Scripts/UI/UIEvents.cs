@@ -16,4 +16,6 @@ public static class UIEvents
     public static Action PauseGame;
 
     public static Action ResumeGame;
+    
+    public static Action GameOverClosed;
 }

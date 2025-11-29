@@ -55,6 +55,8 @@ public class UIManager : MonoBehaviour
         UIEvents.LevelEndShopClosed += UIEOnLevelEndShopClosed;
         UIEvents.PauseGame += UIEOnPauseGame;
         UIEvents.ResumeGame += UIEOnResumeGame;
+        GameEvents.GameOver += UIEOnGameOver;
+        UIEvents.GameOverClosed += UIEOnGameOverClosed;
     }
 
     private void UIEOnLevelEndShopShown()
@@ -97,6 +99,20 @@ public class UIManager : MonoBehaviour
     private void UIEOnResumeGame()
     {
         throw new NotImplementedException();
+    }
+
+    private void UIEOnGameOver()
+    {
+        _currentScreen?.Hide();
+        _currentScreen = _gameOverScreen;
+        _currentScreen.Show();
+    }
+
+    private void UIEOnGameOverClosed()
+    {
+        _currentScreen?.Hide();
+        _currentScreen = _introScreen;
+        _currentScreen.Show();
     }
 
     void UnsubscribeFromEvents()

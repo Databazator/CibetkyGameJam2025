@@ -16,7 +16,7 @@ public abstract class UIScreen : MonoBehaviour
         _document = GetComponent<UIDocument>();
         _root = _document.rootVisualElement;
 
-        _root.RegisterCallback<TransitionEndEvent>(OnTransitionEnd);
+        // _root.RegisterCallback<TransitionEndEvent>(OnTransitionEnd);
     }
 
     protected void OnTransitionEnd(TransitionEndEvent evt)

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UIScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=2b46d87c163310448afe2f30795c6493&amp;type=3#UIScreenStyleSheet" />
+    <ui:VisualElement name="Root" class="root" style="flex-grow: 1; background-color: rgb(44, 45, 56); opacity: 0.8;">
+        <ui:VisualElement name="IntroContent" style="flex-grow: 1; height: 70%;">
+            <ui:Label text="Game Over" name="Label" style="align-items: auto; justify-content: flex-start; align-self: center; align-content: flex-start; margin-top: 20px; -unity-text-align: middle-center; text-overflow: clip; padding-left: 2px; font-size: 50px; color: rgb(255, 255, 255);" />
+            <ui:Label text="You have failed to cleanse the corrupt. Hopefully, some bold hero from your ranks will rise to face the evil in your stead. Otherwise, your domain will forever be doomed." style="flex-wrap: wrap; white-space: pre-wrap; -unity-text-align: middle-center; font-size: 16px; color: rgb(255, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonContainer" class="center" style="flex-grow: 1; height: 0%;">
+            <ui:Button text="Close" name="MenuButton" class="btn-primary center" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

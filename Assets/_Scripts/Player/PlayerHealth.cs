@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        GameEvents.HealthChanged(currentHealth / maxHealth);
     }
 
     public void Heal(float amount) 
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        GameEvents.HealthChanged(currentHealth / maxHealth);
     }
 
     public void DecreaseMaxHealth(float amount)
@@ -42,23 +44,25 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+        GameEvents.HealthChanged(currentHealth / maxHealth);
     }
 
     public void IncreaseMaxHealth(float amount)
     {
         maxHealth += amount;
+        GameEvents.HealthChanged(currentHealth / maxHealth);
     }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        GameEvents.HealthChanged(currentHealth / maxHealth);
     }
 
     void Die()
     {
         Debug.Log("Player has died.");
-        // Handle player death (e.g., respawn, game over screen, etc.)
-        // For now, turn off player controls
+        GameEvents.GameOver();
         gameObject.SetActive(false);
     }
 }

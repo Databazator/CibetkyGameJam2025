@@ -1,15 +1,13 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/UIScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=2b46d87c163310448afe2f30795c6493&amp;type=3#UIScreenStyleSheet" />
-    <Style src="project://database/Assets/UI/IntroScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=112265b4f47e3264d8f4fd3e54573497&amp;type=3#IntroScreenStyleSheet" />
-    <ui:VisualElement name="Root" style="flex-grow: 1; background-color: rgb(162, 163, 176);">
+    <ui:VisualElement name="Root" class="root" style="flex-direction: column; flex-grow: 1;">
         <ui:VisualElement name="IntroContent" style="flex-grow: 1; height: 70%;">
-            <ui:Label text="INTRO SCREEN" style="align-items: auto; justify-content: flex-start; align-self: center; align-content: flex-start; margin-top: 20px;" />
-            <ui:Label text="Info dump&#10;lorem ipusum atd atd" />
-            <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/TextMesh%20Pro/Sprites/EmojiOne.png?fileID=2800000&amp;guid=dffef66376be4fa480fb02b19edbe903&amp;type=3#EmojiOne&quot;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.42); margin-top: 15px; margin-right: 15px; margin-bottom: 15px; margin-left: 15px;" />
-            <ui:Label text="Some useful images... hopefully&#10;" />
+            <ui:Label text="INTRO SCREEN" class="text-header" style="align-items: auto; justify-content: flex-start; align-self: center; align-content: flex-start; margin-top: 20px;" />
+            <ui:Label text="Info dump&#10;lorem ipusum atd atd" class="text-subheader" />
+            <ui:Label text="Some useful images... hopefully&#10;" class="text-body" />
         </ui:VisualElement>
-        <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; height: 0%;">
-            <ui:Button text="Play" name="PlayButton" class="playButton" style="width: 20%; margin-left: 75%;" />
+        <ui:VisualElement name="ButtonContainer" class="center" style="flex-grow: 1; height: 0%; flex-direction: column; align-self: center;">
+            <ui:Button text="Play" name="PlayButton" class="btn-primary center" style="width: 20%; margin-left: 4px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
