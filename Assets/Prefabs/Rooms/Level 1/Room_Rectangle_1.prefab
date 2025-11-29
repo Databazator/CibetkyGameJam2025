@@ -1575,7 +1575,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4363981539184250824}
   - {fileID: 4980395154107416246}
   - {fileID: 7010588464426437531}
   - {fileID: 7190690772946866083}
@@ -3316,6 +3315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6233616461181932697}
+  - component: {fileID: 1435140690237807762}
   m_Layer: 0
   m_Name: Room_Rectangle_1
   m_TagString: Untagged
@@ -3336,6 +3336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4363981539184250824}
   - {fileID: 3841444937869157885}
   - {fileID: 5131841655291311508}
   - {fileID: 4173103198814904407}
@@ -3345,6 +3346,45 @@ Transform:
   - {fileID: 5995861918107874438}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435140690237807762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8445151510875929033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011727cfd612b5940b32cf48abe1cd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomConstructionEffect
+  FloorTiles:
+  - {fileID: 4980395154107416246}
+  - {fileID: 7010588464426437531}
+  - {fileID: 7190690772946866083}
+  - {fileID: 5218077473149514138}
+  - {fileID: 914543619176425320}
+  - {fileID: 2755938599891389590}
+  - {fileID: 4332712583466322262}
+  - {fileID: 5624192114593399197}
+  - {fileID: 882787107156302900}
+  - {fileID: 7843794667104630389}
+  - {fileID: 4923879156966984575}
+  - {fileID: 7342190425298433181}
+  - {fileID: 770932572985031777}
+  - {fileID: 2592396708657042811}
+  - {fileID: 1382948198691246679}
+  - {fileID: 7701917944235139831}
+  - {fileID: 5727008853850083923}
+  Obstacles:
+  - {fileID: 4340891648323300739}
+  - {fileID: 2241189106812299324}
+  - {fileID: 837455420302471628}
+  AdditionalObjects: []
+  buildOnStart: 1
+  ItemConstructionDuration: 0.3
+  PhaseDuration: 1.5
+  EarlyNextPhaseTime: 0.25
 --- !u!1 &8449133228233710397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,11 +3524,11 @@ Transform:
   m_GameObject: {fileID: 8479137163020635251}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.299995, y: -0.1400001, z: 29.699997}
+  m_LocalPosition: {x: 45.299995, y: 0.42, z: 29.699997}
   m_LocalScale: {x: 4.67901, y: 5, z: 4.52487}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4173103198814904407}
+  m_Father: {fileID: 6233616461181932697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &280289561645881028
 MeshFilter:
