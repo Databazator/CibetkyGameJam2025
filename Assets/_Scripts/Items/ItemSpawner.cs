@@ -61,24 +61,22 @@ public class ItemSpawner : MonoBehaviour
     private List<Item> SelectPool()
     {
         float pool = RNG.GetRandomFloat();
-        Debug.Log("pool is " + pool);
         float fortune = 1 - BlackMagic(GetLuck(), pool, _luckStrength);
-        Debug.Log("luck mod is " + fortune);
+
+        Debug.Log("Fortune: " + fortune + ", Luck: " + GetLuck() + ", Pool: " + pool + ", Strength: " + _luckStrength);
+
         if (fortune <= _rareRarity)
         {
-            Debug.Log("Selected rare pool");
             return _rares;
         }
 
         if (fortune <= _uncommonRarity)
         {
-            Debug.Log("Selected uncommon pool");
-            return _uncommons;   
+            return _uncommons;
         }
 
         if (fortune <= _commonRarity)
         {
-            Debug.Log("Selected common pool");
             return _commons;
         }
         Debug.LogError("Selected no pool, oops");
@@ -88,7 +86,6 @@ public class ItemSpawner : MonoBehaviour
     private float GetDropRate(float rate)
     {
         float enhancedDropRate = rate * GetLuck() * 100;
-        Debug.Log("Enhanced rate is " + enhancedDropRate);
         return enhancedDropRate;
     }
 
@@ -96,7 +93,6 @@ public class ItemSpawner : MonoBehaviour
     {
         var missingMaxHealth = _playerHealth.startingMaxHealth - _playerHealth.maxHealth;
         float luck = missingMaxHealth / _playerHealth.startingMaxHealth;
-        Debug.Log("Luck is " + luck);
         return luck;
     }
 

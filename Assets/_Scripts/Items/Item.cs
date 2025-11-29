@@ -59,6 +59,7 @@ public class Item : MonoBehaviour
     {
         return TextScrambler.ScrambleText(description);
     }
+    
     public void ApplyEffects(GameObject player)
     {
         // Implement effect application logic here
