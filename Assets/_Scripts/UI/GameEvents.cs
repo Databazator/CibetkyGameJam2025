@@ -13,4 +13,7 @@ public static class GameEvents
     public static Action ExitToMenu;
     public static Action GamePaused;
     public static Action GameUnpaused;
+
+    public static Action<Item> ItemFound;
+    public static Action<Item> ItemAccepted;
 }

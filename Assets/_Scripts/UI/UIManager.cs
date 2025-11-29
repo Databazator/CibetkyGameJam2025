@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIScreen _introScreen;
     [SerializeField] private UIScreen _gameScreen;
     [SerializeField] private UIScreen _gameOverScreen;
-    [SerializeField] private UIScreen _levelEndShopScreen;
+    [SerializeField] private UIScreen _shopScreen;
 
     private void Awake()
     {
@@ -50,22 +50,13 @@ public class UIManager : MonoBehaviour
     {
         UIEvents.IntroShown += UIEOnIntroShown;
         UIEvents.IntroClosed += UIEOnIntroClosed;
-        UIEvents.LevelEndShopShown += UIEOnLevelEndShopShown;
-        UIEvents.LevelEndShopClosed += UIEOnLevelEndShopClosed;
+        UIEvents.ShopOpen += UIEOnShopOpen;
+        UIEvents.ShopClose += UIEOnShopClose;
         UIEvents.PauseGame += UIEOnPauseGame;
         UIEvents.ResumeGame += UIEOnResumeGame;
-        GameEvents.GameOver += UIEOnGameOver;
         UIEvents.GameOverClosed += UIEOnGameOverClosed;
-    }
-
-    private void UIEOnLevelEndShopShown()
-    {
-        SwitchScreens(_levelEndShopScreen);
-    }
-
-    private void UIEOnLevelEndShopClosed()
-    {
-        SwitchScreens(_gameScreen);
+        GameEvents.GameOver += UIEOnGameOver;
+        GameEvents.ItemFound += UIEOnItemFound;
     }
 
     private void UIEOnIntroShown()
@@ -100,6 +91,22 @@ public class UIManager : MonoBehaviour
         SwitchScreens(_introScreen);
     }
 
+    private void UIEOnShopOpen()
+    {
+        SwitchScreens(_shopScreen);
+    }
+
+    private void UIEOnShopClose()
+    {
+        SwitchScreens(_gameScreen);
+    }
+
+    private void UIEOnItemFound(Item item)
+    {
+        _shopScreen.SetItem(item);
+        UIEvents.ShopOpen.Invoke();
+    }
+
     private void SwitchScreens(UIScreen newScreen)
     {
         _currentScreen?.Hide();
@@ -112,10 +119,13 @@ public class UIManager : MonoBehaviour
     {
         UIEvents.IntroShown -= UIEOnIntroShown;
         UIEvents.IntroClosed -= UIEOnIntroClosed;
-        UIEvents.LevelEndShopShown -= UIEOnLevelEndShopShown;
-        UIEvents.LevelEndShopClosed -= UIEOnLevelEndShopClosed;
+        UIEvents.ShopOpen -= UIEOnShopOpen;
+        UIEvents.ShopClose -= UIEOnShopClose;
         UIEvents.PauseGame -= UIEOnPauseGame;
         UIEvents.ResumeGame -= UIEOnResumeGame;
+        UIEvents.GameOverClosed -= UIEOnGameOverClosed;
+        GameEvents.ItemFound -= UIEOnItemFound;
+        GameEvents.GameOver -= UIEOnGameOver;
     }
 
     private void Initialize()
@@ -139,7 +149,7 @@ public class UIManager : MonoBehaviour
             _introScreen,            
             _gameScreen,            
             _gameOverScreen,
-            _levelEndShopScreen
+            _shopScreen
         };
     }
 

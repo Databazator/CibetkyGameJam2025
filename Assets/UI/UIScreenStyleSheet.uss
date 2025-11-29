@@ -15,20 +15,19 @@
 }
 
 :root {
-
 }
 
 .root {
-    --color-primary: rgb(0, 0, 0, 0);
-    --color-primary-hover: rgb(0, 0, 0, 0.2);
-    --color-secondary: rgb(0, 0, 0, 0);
-    --color-secondary-hover: rgb(0, 0, 0, 0.2);
+    --color-primary: ;
+    --color-primary-hover: ;
+    --color-secondary: ;
+    --color-secondary-hover: ;
     --color-background: rgb(10, 15, 35);
     --color-background-light: rgb(20, 28, 50);
     --color-text: rgb(230, 235, 245);
     --color-text-secondary: rgb(160, 170, 190);
     background-color: var(--color-background);
-    padding: 20px
+    padding: 20px;
 }
 
 .btn-primary {
@@ -40,6 +39,9 @@
     font-size: 16px;
     transition-duration: 0.2s;
     transition-property: background-color, scale;
+    margin-right: 24px;
+    margin-left: 24px;
+    min-width: 100px;
 }
 
 .btn-primary:hover {
@@ -61,6 +63,9 @@
     font-size: 16px;
     transition-duration: 0.2s;
     transition-property: background-color, scale;
+    min-width: 100px;
+    margin-right: 24px;
+    margin-left: 24px;
 }
 
 .btn-secondary:hover {
@@ -104,6 +109,7 @@
     color: var(--color-text-secondary);
     font-size: 14px;
 }
+
 .center {
     align-items: center;
     justify-content: center;

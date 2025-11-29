@@ -269,8 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b605f1124e7de4998ee0505c77028b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Levels:
-  - Scenes/Enemy
+  Levels: []
   LevelIndex: 0
 --- !u!4 &497653332
 Transform:

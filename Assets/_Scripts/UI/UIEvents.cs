@@ -5,10 +5,6 @@ using UnityEngine;
 
 public static class UIEvents
 {
-    public static Action LevelEndShopShown;
-
-    public static Action LevelEndShopClosed;
-
     public static Action IntroShown;
 
     public static Action IntroClosed;
@@ -18,4 +14,8 @@ public static class UIEvents
     public static Action ResumeGame;
     
     public static Action GameOverClosed;
+
+    public static Action ShopOpen;
+    
+    public static Action ShopClose;
 }
