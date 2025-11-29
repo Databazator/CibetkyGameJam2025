@@ -16,4 +16,5 @@ public static class GameEvents
 
     public static Action<Item> ItemFound;
     public static Action<Item> ItemAccepted;
+    public static Action<Item> ItemSkipped;
 }

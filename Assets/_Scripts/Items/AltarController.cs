@@ -56,21 +56,46 @@ public class AltarController : MonoBehaviour
             // Hide interact button
         }
     }
+
+    private void OnItemAccepted(Item item)
+    {
+        if (_itemOnStand == item)
+        {
+            Debug.Log("Player accepted item " + item.name + " from altar.");
+
+            // Add item to player inventory
+            _playerInventory.AddItem(item);
+            RemoveItem();
+        }
+    }
+
+    private void OnItemSkipped(Item item)
+    {
+        if (_itemOnStand == item)
+        {
+            Debug.Log("Player skipped item " + item.name + " from altar.");
+
+            // Just remove item from stand
+            RemoveItem();
+        }
+    }
     
     void Start()
     {
         // Remove any item on stand if accidentally left there
         RemoveItem();
+        GameEvents.ItemAccepted += OnItemAccepted;
+        GameEvents.ItemSkipped += OnItemSkipped;
     }
 
-    private void Update()
+    void Update()
     {
         bool wasInteractPressed = _playerController.interactAction.ReadValue<float>() > 0f;
         if (_interactable && wasInteractPressed && _itemOnStand != null)
         {
-            // Take the item
-            _playerInventory.AddItem(_itemOnStand);
-            RemoveItem();
+            // Trigger shopping UI
+            GameEvents.ItemFound.Invoke(_itemOnStand);
+            _interactable = false;
         }
     }
 }
