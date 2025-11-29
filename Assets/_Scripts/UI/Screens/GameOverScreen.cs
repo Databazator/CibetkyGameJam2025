@@ -14,6 +14,7 @@ public class GameOverScreen : UIScreen
 
     private void OnMenuClicked()
     {
-        UIEvents.GameOverClosed?.Invoke();
+        UIEvents.GameOverClosed.Invoke();
+        GameEvents.ExitToMenu.Invoke();
     }
 }

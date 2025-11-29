@@ -167,6 +167,8 @@ public class EnemyBehavior : MonoBehaviour
 
         // Instantiate projectile
         GameObject bullet = Instantiate(projectile, transform.position + shootDirection * 1.5f, Quaternion.LookRotation(shootDirection));
+        // Add bullet under the enemy in the hierarchy
+        bullet.transform.parent = this.transform;
         // Set speed
         bullet.GetComponent<Rigidbody>().linearVelocity = shootDirection * projectileSpeed;
         // Set bullet damage

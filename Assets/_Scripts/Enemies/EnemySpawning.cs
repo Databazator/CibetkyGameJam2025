@@ -49,6 +49,8 @@ public class EnemySpawning : MonoBehaviour
                 Random.Range(-spawnArea.transform.localScale.z * 2, spawnArea.transform.localScale.z * 2)
             );
             var enemy = Instantiate(enemyPrefab, spawnArea.transform.position + randomPosition, Quaternion.identity);
+            // Add enemy under the spawner in the room
+            enemy.transform.parent = this.transform;
             // Set room
             var behavior = enemy.GetComponent<EnemyBehavior>();
             behavior.roomBottomLeft = spawnArea.transform.position - spawnArea.transform.localScale;

@@ -6,16 +6,19 @@ public class LevelManager : MonoBehaviour
 {
     public List<string> Levels = new List<string>();
     public int LevelIndex = 0;
+    private string loadedScene;
 
     void Awake()
     {
         GameEvents.GameStarted += LoadScene;
         GameEvents.LevelCleared += IncreaseLevel;
+        GameEvents.ExitToMenu += CleanUp;
     }
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(Levels[LevelIndex], LoadSceneMode.Additive);
+        loadedScene = Levels[LevelIndex];
+        SceneManager.LoadScene(loadedScene, LoadSceneMode.Additive);
     }
 
     public void IncreaseLevel()
@@ -23,7 +26,28 @@ public class LevelManager : MonoBehaviour
         LevelIndex++;
         if (LevelIndex >= Levels.Count)
         {
-            LevelIndex = 0;
+            GameEvents.GameOver.Invoke();
+            return;
         }
+        SceneManager.UnloadSceneAsync(loadedScene);
+        LoadScene();
+    }
+
+    private void CleanUp()
+    {
+        Debug.Log("Cleaning up level " + loadedScene);
+        // Destroy all game objects in loaded scene
+        var scene = SceneManager.GetSceneByName(loadedScene);
+        if (scene.IsValid())
+        {
+            Debug.Log("Scene is valid, destroying root objects.");
+            var rootObjects = scene.GetRootGameObjects();
+            foreach (var obj in rootObjects)
+            {
+                Destroy(obj);
+            }
+        }
+        SceneManager.UnloadSceneAsync(loadedScene);
+        LevelIndex = 0;
     }
 }

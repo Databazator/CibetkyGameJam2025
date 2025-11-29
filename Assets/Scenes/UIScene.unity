@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   skipIntro: 0
-  SceneLoader: {fileID: 497653331}
   _introScreen: {fileID: 82596173}
   _gameScreen: {fileID: 1795043052}
   _gameOverScreen: {fileID: 1640695177}
@@ -270,7 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b605f1124e7de4998ee0505c77028b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  SceneToLoad: Scenes/Enemy
+  Levels:
+  - Scenes/Enemy
+  LevelIndex: 0
 --- !u!4 &497653332
 Transform:
   m_ObjectHideFlags: 0
