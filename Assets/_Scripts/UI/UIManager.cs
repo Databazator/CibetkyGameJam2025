@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,6 @@ public class UIManager : MonoBehaviour
     private UIScreen _previousScreen;
 
     private List<UIScreen> _screens;
-
-    public TestLoadSceneAdditive SceneLoader;
 
     [SerializeField] private UIScreen _introScreen;
     [SerializeField] private UIScreen _gameScreen;
@@ -38,7 +37,7 @@ public class UIManager : MonoBehaviour
         {
             _currentScreen = _gameScreen;
             _currentScreen.Show();
-            SceneLoader?.LoadScene();
+            GameEvents.GameStarted.Invoke();
         }
         else
         {
@@ -61,33 +60,23 @@ public class UIManager : MonoBehaviour
 
     private void UIEOnLevelEndShopShown()
     {
-        _currentScreen?.Hide();
-        _currentScreen = _levelEndShopScreen;
-        _currentScreen.Show();
+        SwitchScreens(_levelEndShopScreen);
     }
 
     private void UIEOnLevelEndShopClosed()
     {
-        _currentScreen?.Hide();
-        _currentScreen = _gameScreen;
-        _currentScreen.Show();
+        SwitchScreens(_gameScreen);
     }
 
     private void UIEOnIntroShown()
     {
-        _currentScreen?.Hide();
-        _currentScreen = _introScreen;
-        _currentScreen.Show();
+        SwitchScreens(_introScreen);
     }
 
     private void UIEOnIntroClosed()
     {
-        _currentScreen?.Hide();
-        _currentScreen = _gameScreen;
-        _currentScreen.Show();
-
-        //TODO shouldnt be here
-        SceneLoader?.LoadScene();
+        SwitchScreens(_gameScreen);
+        GameEvents.GameStarted.Invoke();
     }
 
     
@@ -103,15 +92,19 @@ public class UIManager : MonoBehaviour
 
     private void UIEOnGameOver()
     {
-        _currentScreen?.Hide();
-        _currentScreen = _gameOverScreen;
-        _currentScreen.Show();
+        SwitchScreens(_gameOverScreen);
     }
 
     private void UIEOnGameOverClosed()
     {
+        SwitchScreens(_introScreen);
+    }
+
+    private void SwitchScreens(UIScreen newScreen)
+    {
         _currentScreen?.Hide();
-        _currentScreen = _introScreen;
+        _previousScreen = _currentScreen;
+        _currentScreen = newScreen;
         _currentScreen.Show();
     }
 

@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3060705922286507106, guid: 60d0f2cb51a380847be319e2bb03438c, type: 3}
+      propertyPath: numberOfEnemies
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4041337313532559866, guid: 60d0f2cb51a380847be319e2bb03438c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -8,6 +8,8 @@ public static class GameEvents
     public static Action<float> HealthChanged;
 
     public static Action GameOver;
+    public static Action GameStarted;
+    public static Action LevelCleared;
 
     public static Action GamePaused;
     public static Action GameUnpaused;
