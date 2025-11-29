@@ -32,7 +32,7 @@ public static class TextScrambler
             }
             else
             {
-                int i = RNG.GetRandomNumber(0, WeirdSymbols.Length);
+                int i = RNG.GetRandomInt(0, WeirdSymbols.Length);
                 mapped.Add(WeirdSymbols[i]);    
             }
         }

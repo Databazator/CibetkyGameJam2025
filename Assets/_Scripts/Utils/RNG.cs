@@ -6,9 +6,14 @@ namespace _Scripts.Utils
     {
         private static readonly Random Rnd = new Random();
 
-        public static int GetRandomNumber(int min, int max)
+        public static int GetRandomInt(int min, int max)
         {
             return Rnd.Next(min, max);
+        }
+        
+        public static float GetRandomFloat()
+        {
+            return (float)Rnd.NextDouble();
         }
     }
 }
