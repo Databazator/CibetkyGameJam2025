@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIScreen _introScreen;
     [SerializeField] private UIScreen _gameScreen;
     [SerializeField] private UIScreen _gameOverScreen;
-    [SerializeField] private UIScreen _shopScreen;
+    [SerializeField] private ShopScreen _shopScreen;
 
     private void Awake()
     {

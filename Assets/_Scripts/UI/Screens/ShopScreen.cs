@@ -31,11 +31,11 @@ public class ShopScreen : UIScreen
     {
         _currentItem = item;
         _itemNameLabel.text = item.itemName;
-        _itemDescLabel.text = item.itemDescription;
+        _itemDescLabel.text = item.description;
         // _itemImage.sprite = item.itemIcon;
         // Change tint of background image based on rarity
         Color glowColor = Color.white;
-        switch (item.itemRarity)
+        switch (item.rarity)
         {
             case Item.Rarity.Common:
                 glowColor = new Color(192f / 255f, 192f / 255f, 192f / 255f); // Silver
@@ -55,25 +55,25 @@ public class ShopScreen : UIScreen
         }
         // _rarityGlow.style.unityBackgroundImageTintColor = glowColor;
         // Set glow to the item name label as well using box shadow
-        _itemNameLabel.style.boxShadow = new StyleBoxShadow(new BoxShadow()
-        {
-            color = glowColor,
-            offset = new Vector2(0, 0),
-            blurRadius = 10,
-            spreadRadius = 5
-        });
+        // _itemNameLabel.style.boxShadow = new StyleBoxShadow(new BoxShadow()
+        // {
+        //     color = glowColor,
+        //     offset = new Vector2(0, 0),
+        //     blurRadius = 10,
+        //     spreadRadius = 5
+        // });
     }
 
     private void OnAcceptClicked()
     {
-        Debug.Log("Item accepted: " + _currentItem.ItemName);
+        Debug.Log("Item accepted: " + _currentItem.itemName);
         GameEvents.ItemAccepted?.Invoke(_currentItem);
-        UIEvents.ShopClosed?.Invoke();
+        UIEvents.ShopClose?.Invoke();
     }
 
     private void OnSkipClicked()
     {
-        Debug.Log("Item skipped: " + _currentItem.ItemName);
-        UIEvents.ShopClosed?.Invoke();
+        Debug.Log("Item skipped: " + _currentItem.itemName);
+        UIEvents.ShopClose?.Invoke();
     }
 }
