@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private InputAction _lookAction;
     private InputAction _attackAction;
     private InputAction _dashAction;
-
+    public InputAction interactAction;
 
     public float MovementSpeed;
     public const float GRAVITY = 10f;
@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
         _lookAction = _actions.Player.Look;
         _attackAction = _actions.Player.Attack;
         _dashAction = _actions.Player.Dash;
+        interactAction = _actions.Player.Interact;
         InputSystem.onActionChange += InputSystem_onActionChange;
     }
 

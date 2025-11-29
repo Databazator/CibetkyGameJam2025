@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - Entry
   - EnemyProjectile
+  - Item
   layers:
   - Default
   - TransparentFX
