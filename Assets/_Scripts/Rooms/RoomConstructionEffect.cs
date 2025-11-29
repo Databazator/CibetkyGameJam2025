@@ -18,6 +18,8 @@ public class RoomConstructionEffect : MonoBehaviour
     private float _itemsStartHeight = -250f;
 
     public Action RoomConstructed;
+
+    public bool IsRoomConstructed = false;
     private void Start()
     {
         //hide room
@@ -36,6 +38,11 @@ public class RoomConstructionEffect : MonoBehaviour
 
     public void ConstructRoom()
     {
+        if(IsRoomConstructed)
+        {
+            Debug.LogWarning("Trying to construct a room that was already plink-plonked up. no good buddy.");
+            return;
+        }
         //floor phase.
         float delay = 0;
         ConstructionPhase(FloorTiles, delay);
@@ -44,6 +51,7 @@ public class RoomConstructionEffect : MonoBehaviour
         delay += PhaseDuration;
         ConstructionPhase(AdditionalObjects, delay);
         delay += PhaseDuration;
+        IsRoomConstructed = true;
         RoomConstructed?.Invoke();
     }
 
