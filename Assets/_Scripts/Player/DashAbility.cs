@@ -38,7 +38,7 @@ public class DashAbility : PlayerAbility
     {
         _isDashing = true;
         _dashTimer = DashDuration;
-        Debug.Log($"Dash start");
+        //Debug.Log($"Dash start");
         _dashTrail.emitting = true;
     }
 
