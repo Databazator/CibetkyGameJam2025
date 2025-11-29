@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,9 +14,15 @@ public class PlayerController : MonoBehaviour
     private InputAction _dashAction;
     public InputAction interactAction;
 
+    public Animator Animator;
+
     public float MovementSpeed;
     public const float GRAVITY = 10f;
     private Vector2 _lastMovementInput;
+    private Vector3 _lastAttackDirection;
+    private Vector3 _lastDashDirection;
+
+    private Vector3 _lastMovementBlendingVector;
 
     public PlayerAbility DashAbility;
     public PlayerAbility AttackAbility;
@@ -48,6 +55,34 @@ public class PlayerController : MonoBehaviour
         {
             HandleAttack();
             HandleDash();
+        }
+
+        HandleAnimations();
+    }
+
+    private void HandleAnimations()
+    {
+        if(!AttackAbility.AbilityInUse())
+        {
+            if(DashAbility.AbilityInUse() || _lastMovementInput != Vector2.zero)
+            {
+                // calculate move input relative to player look direction
+                Animator.SetBool("IsMoving", true);
+
+                Vector3 inputVector = new Vector3(_lastMovementInput.x, 0f, _lastMovementInput.y);
+                float inputLookdirAngle = Vector3.SignedAngle(LookDirection, inputVector, Vector3.up);
+
+                Vector3 movementBlendingVec = Quaternion.AngleAxis(inputLookdirAngle, Vector3.up) * Vector3.forward * inputVector.magnitude;
+
+                _lastMovementBlendingVector = Vector3.Slerp(_lastMovementBlendingVector, movementBlendingVec, 10 * Time.deltaTime);
+                Animator.SetFloat("X", _lastMovementBlendingVector.x);
+                Animator.SetFloat("Y", _lastMovementBlendingVector.z);
+            }
+            else
+            {
+                // player idle
+                Animator.SetBool("IsMoving", false);
+            }
         }
     }
 
@@ -90,6 +125,7 @@ public class PlayerController : MonoBehaviour
             if(_attackAction.ReadValue<float>() > 0f)
             {
                 AttackAbility.TriggerAbility(LookDirection);
+                _lastAttackDirection = LookDirection;
             }
         }
     }
@@ -101,12 +137,12 @@ public class PlayerController : MonoBehaviour
             if (_dashAction.ReadValue<float>() > 0f)
             {
                 // dash dir is based on absolute player input, if no input, dash in current look dir
-                Vector3 dashDirection = new Vector3(_lastMovementInput.x, 0, _lastMovementInput.y).normalized;
-                if(dashDirection == Vector3.zero)
+                Vector3 _lastDashDirection = new Vector3(_lastMovementInput.x, 0, _lastMovementInput.y).normalized;
+                if(_lastDashDirection == Vector3.zero)
                 {
-                    dashDirection = LookDirection;
+                    _lastDashDirection = LookDirection;
                 }
-                DashAbility.TriggerAbility(dashDirection);
+                DashAbility.TriggerAbility(_lastDashDirection);
             }
         }
     }
@@ -122,7 +158,10 @@ public class PlayerController : MonoBehaviour
             LookDirection = GetGamepadLookDirection();
         }
 
-        this.transform.rotation = Quaternion.LookRotation(LookDirection, Vector3.up);
+        if (AttackAbility.AbilityInUse())
+            this.transform.rotation = Quaternion.LookRotation(_lastAttackDirection, Vector3.up);
+        else
+            this.transform.rotation = Quaternion.LookRotation(LookDirection, Vector3.up);
     }
 
     Vector3 GetMouseLookDirection()
@@ -204,7 +243,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
     public void MultiplicateMoveSpeed(float percentage)
     {
         MovementSpeed *= percentage;

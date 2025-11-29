@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAttackAbility : PlayerAbility
 {
     public GameObject AttackEffectObject;
+    public Animator PlayerAnimator;
     private bool _isAttacking = false;
 
     private float _attackTimer = 0f;
@@ -22,6 +23,9 @@ public class PlayerAttackAbility : PlayerAbility
     {
         _isAttacking = true;
         _attackTimer = AttackDuration;
+
+        // play attack anim
+        PlayerAnimator?.SetTrigger("Attack");
 
         //spawn attack effect that deals with damage
         Vector3 attackStartPos = transform.position + direction.normalized * 0.5f;
