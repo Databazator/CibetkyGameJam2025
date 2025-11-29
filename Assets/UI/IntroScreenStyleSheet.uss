@@ -1,0 +1,9 @@
+:root {
+}
+
+.playButton {
+}
+
+.playButton:hover {
+    background-color: rgb(144, 173, 222);
+}
