@@ -1,5 +1,6 @@
 using UnityEngine;
 using _Scripts.Utils;
+using DG.Tweening;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -71,8 +72,17 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died.");
-        GameEvents.GameOver();
-        gameObject.SetActive(false);
+        float deathSequence = 2f;
+        //Game over happens after player death anim and death effect plays
+        DOVirtual.DelayedCall(deathSequence, () => GameEvents.GameOver());
+        //gameObject.SetActive(false);
+        Animator anim = GetComponentInChildren<Animator>();
+        if(anim != null)
+        {
+            anim.SetBool("Dead", true);
+        }
+        // tween saturation to bw
+        // reset saturation to default value after death delay back
     }
 
     public bool TryDeflect()
