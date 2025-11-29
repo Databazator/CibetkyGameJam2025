@@ -518,6 +518,17 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &483473876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8116550828124646537, guid: 45655268b217b3fa493e5107b28b64ee, type: 3}
+  m_PrefabInstance: {fileID: 519901379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54288b4b52050bb35810db4bbdcbd05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
 --- !u!1001 &519901379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1256,6 +1267,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2039547010055904989, guid: 6b011c12397febc40970053715c155fc, type: 3}
   m_PrefabInstance: {fileID: 7579972790401719260}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1426827007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3670267537660656952, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
+  m_PrefabInstance: {fileID: 128244396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54288b4b52050bb35810db4bbdcbd05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
 --- !u!1 &1490699883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1599,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 519901381}
     m_Modifications:
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: itemSpawner
+      value: 
+      objectReference: {fileID: 483473876}
     - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: spawners.Array.size
       value: 9
@@ -2001,6 +2027,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 90920343}
     m_Modifications:
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: ItemSpawner
+      value: 
+      objectReference: {fileID: 1426827007}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: itemSpawner
+      value: 
+      objectReference: {fileID: 1426827007}
     - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: spawners.Array.size
       value: 1

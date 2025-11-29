@@ -46,6 +46,7 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnRandomItem()
     {
+        Debug.Log("Spawning random item at altar.");
         // var spawnPosition = spawnTarget.transform.position;
         Item selectedItem = GetRandomItem();
         if (selectedItem == null)
