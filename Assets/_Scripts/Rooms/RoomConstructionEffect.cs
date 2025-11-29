@@ -9,7 +9,8 @@ public class RoomConstructionEffect : MonoBehaviour
     public List<Transform> FloorTiles;
     public List<Transform> Obstacles;
     public List<Transform> AdditionalObjects;
-
+    public bool buildOnStart = true;
+    
     public float ItemConstructionDuration;
     public float PhaseDuration;
     public float EarlyNextPhaseTime;
@@ -27,7 +28,10 @@ public class RoomConstructionEffect : MonoBehaviour
         foreach(Transform t in AdditionalObjects)
         { t.gameObject.SetActive(false); }
 
-        DOVirtual.DelayedCall(1f, () => ConstructRoom());
+        if (buildOnStart)
+        {
+            DOVirtual.DelayedCall(1f, () => ConstructRoom());
+        }
     }
 
     public void ConstructRoom()

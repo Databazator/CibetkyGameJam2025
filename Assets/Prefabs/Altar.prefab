@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9087960714932939525}
   - component: {fileID: 6960128861485849690}
+  - component: {fileID: 7258843166521757458}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Untagged
@@ -87,6 +88,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &7258843166521757458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342542322915282733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c9e80da0223e7681b875628310711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AltarController
+  physicalItem: {fileID: 8163387365037731131}
 --- !u!1001 &1023703531052227587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,5 +264,10 @@ PrefabInstance:
 --- !u!4 &4930172308447187325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7242402195748835904, guid: b2a0dda461427d9078c5241a2ab85b00, type: 3}
+  m_PrefabInstance: {fileID: 2371519017101296445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8163387365037731131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5882684582080572934, guid: b2a0dda461427d9078c5241a2ab85b00, type: 3}
   m_PrefabInstance: {fileID: 2371519017101296445}
   m_PrefabAsset: {fileID: 0}
