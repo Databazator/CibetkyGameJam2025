@@ -1,4 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/UIScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=2b46d87c163310448afe2f30795c6493&amp;type=3#UIScreenStyleSheet" />
-    <ui:ProgressBar value="22" name="HealthBar" style="margin-left: 10%; margin-right: 10%; margin-top: 2%;" />
+    <Style src="project://database/Assets/UI/GameScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=705b075f432530e49926e4b32f1a377f&amp;type=3#GameScreenStyleSheet" />
+    <ui:VisualElement name="Root" style="flex-grow: 1;">
+        <ui:VisualElement name="HealthBarRoot" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="HealthBarSymbol" style="flex-grow: 0; top: 95%; width: 50px; background-image: url(&quot;project://database/Assets/UI/Themes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=fbbdadde4b9d5ad45ad79e3ecc477e59&amp;type=3#arrow-right@2x&quot;); align-items: flex-start; align-self: auto; justify-content: flex-start; height: 50px; translate: 0 -8px;" />
+            <ui:ProgressBar value="100" name="HealthBar" class="healthBarMain" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
