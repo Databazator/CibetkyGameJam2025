@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public InputAction interactAction;
 
     public float MovementSpeed;
-    public float GRAVITY = Physics.gravity.y;
+    public const float GRAVITY = 10f;
     private Vector2 _lastMovementInput;
 
     public PlayerAbility DashAbility;
