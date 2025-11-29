@@ -48,7 +48,6 @@ MonoBehaviour:
   description: Strong winds push you forward, further and faster
   rarity: 1
   modifiers:
-  - keyword: 6
-    value: 0.15
+  - {fileID: 276999434634726906, guid: d741200691055504c93d156c12863bc8, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 10

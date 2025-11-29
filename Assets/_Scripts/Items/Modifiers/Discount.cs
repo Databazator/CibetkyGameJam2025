@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Discount : Modifier
 {
-    public Discount(float value) : base(ModifierKeyword.Discount, value) { }
+    public Discount() : base(ModifierKeyword.Discount) { }
 
     public override void Apply(GameObject target)
     {

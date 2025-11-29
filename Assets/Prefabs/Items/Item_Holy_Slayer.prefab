@@ -49,7 +49,6 @@ MonoBehaviour:
     it makes your attack stronger
   rarity: 2
   modifiers:
-  - keyword: 2
-    value: 0.3
+  - {fileID: 8702787989404811399, guid: 05e239ad2ec660f498d990c59bdcdacd, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 20

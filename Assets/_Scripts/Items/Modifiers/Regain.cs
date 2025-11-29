@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Regain : Modifier
 {
-    public Regain(float value) : base(ModifierKeyword.Regain, value) { }
+    public Regain() : base(ModifierKeyword.Regain) { }
 
     public override void Apply(GameObject target)
     {

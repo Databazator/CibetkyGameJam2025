@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Deflect : Modifier
 {
-    public Deflect(float value) : base(ModifierKeyword.Deflect, value) { }
+    public Deflect() : base(ModifierKeyword.Deflect) { }
 
     public override void Apply(GameObject target)
     {

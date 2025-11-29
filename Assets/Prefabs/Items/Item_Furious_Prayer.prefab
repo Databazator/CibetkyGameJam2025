@@ -49,7 +49,6 @@ MonoBehaviour:
     your hatred for it.
   rarity: 1
   modifiers:
-  - keyword: 5
-    value: 0.15
+  - {fileID: -8248588964221246014, guid: 2662bca2c6c015b4fb40b74137e47a08, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 10

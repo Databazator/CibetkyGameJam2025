@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Dash : Modifier
 {
-    public Dash(float value) : base(ModifierKeyword.Dash, value) { }
+    public Dash() : base(ModifierKeyword.Dash) { }
 
     public override void Apply(GameObject target)
     {

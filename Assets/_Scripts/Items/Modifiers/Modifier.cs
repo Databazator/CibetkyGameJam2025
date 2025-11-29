@@ -11,16 +11,15 @@ public enum ModifierKeyword {
 }
 
 
-public abstract class Modifier
+public abstract class Modifier : MonoBehaviour
 {
-    public Modifier(ModifierKeyword keyword, float value)
+    public Modifier(ModifierKeyword keyword)
     {
         Keyword = keyword;
-        Value = value;
     }
 
     public ModifierKeyword Keyword { get; }
-    public float Value { get; }
+    public float Value = 0f;
     
     public abstract void Apply(GameObject target);
     public abstract void Remove(GameObject target);

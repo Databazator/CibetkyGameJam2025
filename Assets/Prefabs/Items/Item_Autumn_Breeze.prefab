@@ -49,7 +49,6 @@ MonoBehaviour:
     step.
   rarity: 0
   modifiers:
-  - keyword: 1
-    value: 0.1
+  - {fileID: -1965924117127243465, guid: 870b57f9bcbec7f409f2d543881cccda, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 5

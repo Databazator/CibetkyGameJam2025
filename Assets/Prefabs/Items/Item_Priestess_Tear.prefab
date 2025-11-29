@@ -46,9 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
   itemName: Priestess Tear
   description: A small tear shed by a dying priestess. It grants you protection.
-  rarity: 1
+  rarity: 0
   modifiers:
-  - keyword: 0
-    value: 0.1
+  - {fileID: 3914281870888003040, guid: e0a35e391e7e50e479d56245c4cfea7b, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 5

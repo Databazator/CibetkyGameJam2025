@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Move : Modifier
 {
-    public Move(float value) : base(ModifierKeyword.Move, value) { }
+    public Move() : base(ModifierKeyword.Move) { }
 
     public override void Apply(GameObject target)
     {

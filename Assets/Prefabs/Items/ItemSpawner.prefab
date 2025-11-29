@@ -46,12 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
   items:
   - {fileID: 3425606869338832486, guid: bf23d184a6748ed0d88f5eae69559bed, type: 3}
-  - {fileID: 3425606869338832486, guid: bf23d184a6748ed0d88f5eae69559bed, type: 3}
   - {fileID: 4216814867598953547, guid: 7a5d71643dcf1803487b215863f6278e, type: 3}
   - {fileID: 5565547393078689356, guid: e4ae1ef0076d6884dadcd5fcbdf2ae35, type: 3}
   - {fileID: 7826552747598264478, guid: 5c6323591c287bb29b34b080817058a9, type: 3}
   - {fileID: 5886143712694151705, guid: a9b640dcb976e0dada6be3663ab33987, type: 3}
   - {fileID: 8675175955672323381, guid: 7112bbb5e0fdcafcdbba96d2e18b7e60, type: 3}
   - {fileID: 4275854594129534019, guid: d7d6c25d7250c0bbb85f4943c87b9164, type: 3}
-  player: {fileID: 0}
   spawnTarget: {fileID: 0}
+  altar: {fileID: 0}

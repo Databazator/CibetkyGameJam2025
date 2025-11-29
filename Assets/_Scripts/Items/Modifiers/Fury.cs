@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Fury : Modifier
 {
-    public Fury(float value) : base(ModifierKeyword.Fury, value) { }
+    public Fury() : base(ModifierKeyword.Fury) { }
 
     public override void Apply(GameObject target)
     {

@@ -49,7 +49,6 @@ MonoBehaviour:
     to your heart.
   rarity: 1
   modifiers:
-  - keyword: 4
-    value: 0.1
+  - {fileID: -4180040128978542610, guid: 4567910a39e849b4ba0b6e5c03cf1b7e, type: 3}
   cleansed: 0
-  cost: 0
+  cost: 10
