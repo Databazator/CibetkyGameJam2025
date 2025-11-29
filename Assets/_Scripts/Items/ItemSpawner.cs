@@ -17,6 +17,7 @@ public class ItemSpawner : MonoBehaviour
     private readonly float _commonRarity = 0.6f;
     private readonly float _uncommonRarity = 0.35f;
     private readonly float _rareRarity = 0.05f;
+    private readonly float _luckStrength = 0.8f;
     
     void Start()
     {
@@ -37,25 +38,9 @@ public class ItemSpawner : MonoBehaviour
      */
     private Item GetRandomItem()
     {
-        float pool = RNG.GetRandomFloat();
-        List<Item> selectedPool = new List<Item>();
-        if (pool < GetDropRate(_rareRarity))
-        {
-            selectedPool = _rares;
-        }
-
-        if (pool < GetDropRate(_uncommonRarity))
-        {
-          selectedPool = _uncommons;   
-        }
-
-        if (pool < GetDropRate(_commonRarity))
-        {
-            selectedPool = _commons;
-        }
-        
+        List<Item> selectedPool = SelectPool();
         int i = RNG.GetRandomInt(0, selectedPool.Count);
-        return items[i];
+        return selectedPool[i];
     }
 
     public void SpawnRandomItem()
@@ -69,14 +54,50 @@ public class ItemSpawner : MonoBehaviour
         Instantiate(selectedItem, spawnPosition, Quaternion.identity);
     }
 
+    private List<Item> SelectPool()
+    {
+        float pool = RNG.GetRandomFloat();
+        Debug.Log("pool is " + pool);
+        float luckMod = Sig(GetLuck(), _luckStrength);
+        Debug.Log("luck mod is " + luckMod);
+        if (pool - luckMod <= _rareRarity)
+        {
+            Debug.Log("Selected rare pool");
+            return _rares;
+        }
+
+        if (pool - luckMod <= _uncommonRarity)
+        {
+            Debug.Log("Selected uncommon pool");
+            return _uncommons;   
+        }
+
+        if (pool - luckMod <= _commonRarity)
+        {
+            Debug.Log("Selected common pool");
+            return _commons;
+        }
+        Debug.LogError("Selected no pool, oops");
+        return new List<Item>();
+    }
+
     private float GetDropRate(float rate)
     {
-        return rate * GetLuck() * 100;
+        float enhancedDropRate = rate * GetLuck() * 100;
+        Debug.Log("Enhanced rate is " + enhancedDropRate);
+        return enhancedDropRate;
     }
 
     private float GetLuck()
     {
         var missingMaxHealth = _playerHealth.startingMaxHealth - _playerHealth.maxHealth;
-        return missingMaxHealth / (_playerHealth.startingMaxHealth / 100);
+        float luck = missingMaxHealth / (_playerHealth.startingMaxHealth / 100);
+        Debug.Log("Luck is " + luck);
+        return luck;
+    }
+
+    private float Sig(float luck, float steepness)
+    {
+        return 1f / (1f + (float)Math.Exp(-steepness * luck));
     }
 }
