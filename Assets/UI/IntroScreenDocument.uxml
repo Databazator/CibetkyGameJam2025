@@ -7,7 +7,7 @@
             <ui:Label text="Some useful images... hopefully&#10;" class="text-body" />
         </ui:VisualElement>
         <ui:VisualElement name="ButtonContainer" class="center" style="flex-grow: 1; height: 0%; flex-direction: column; align-self: center;">
-            <ui:Button text="Play" name="PlayButton" class="btn-primary center" style="width: 20%; margin-left: 4px;" />
+            <ui:Button text="Play" name="PlayButton" class="btn-primary center" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

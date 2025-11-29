@@ -47,6 +47,11 @@
     scale: 1.05;
 }
 
+.btn-primary:active {
+    background-color: var(--color-primary-hover);
+    scale: 0.95;
+}
+
 .btn-secondary {
     background-color: var(--color-secondary);
     color: var(--color-text);
@@ -61,6 +66,11 @@
 .btn-secondary:hover {
     background-color: var(--color-secondary-hover);
     scale: 1.05;
+}
+
+.btn-secondary:active {
+    background-color: var(--color-secondary-hover);
+    scale: 0.95;
 }
 
 .background {
