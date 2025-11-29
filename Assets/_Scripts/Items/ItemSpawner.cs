@@ -5,22 +5,16 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
 
-    public List<GameObject> items;
-    // public PlayerController player;
+    public List<Item> items = new List<Item>();
+    public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    void pickItem(int index)
     {
-        
-    }
-
-    void pickItem() {
-
-    
+        player.GetComponent<PlayerInventory>().AddItem(items[index]);
     }
 }
