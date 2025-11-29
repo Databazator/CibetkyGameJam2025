@@ -12,6 +12,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        SpawnRandomItem();
     }
 
     /**
@@ -30,6 +31,12 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnRandomItem()
     {
-        
+        var spawnPosition = spawnTarget.transform.position;
+        Item selectedItem = GetRandomItem();
+        if (selectedItem == null)
+        {
+            Debug.Log("This shouldn't happen. We did not select any item");
+        }
+        Instantiate(selectedItem, spawnPosition, Quaternion.identity);
     }
 }

@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fe59341fa7c801289143fa60efd217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
-  name: Holy Slayer
+  itemName: Holy Slayer
   description: Sword of a holy paladin holding a fraction of your power. Wielding
     it makes your attack stronger
   rarity: 2
   modifiers:
   - keyword: 2
     value: 0.3
+  cleansed: 0
+  cost: 0

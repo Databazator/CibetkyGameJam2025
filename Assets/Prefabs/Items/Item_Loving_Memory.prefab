@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fe59341fa7c801289143fa60efd217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemController
-  name: Loving Memory
+  itemName: Loving Memory
   description: A memory of two lovers waking up next to each other. It brings warmth
     to your heart.
   rarity: 1
   modifiers:
   - keyword: 4
     value: 0.1
+  cleansed: 0
+  cost: 0
