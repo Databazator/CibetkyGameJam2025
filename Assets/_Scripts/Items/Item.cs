@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Scripts.Utils;
 using UnityEngine;
 using Random = System.Random;
 
@@ -19,7 +20,6 @@ public static class TextScrambler
         '☭', '⚚', '꧁', '꧂',
     }; 
     
-    private static readonly Random Rnd = new Random();
     public static string ScrambleText(string text)
     {
         List<char> mapped =  new List<char>(); 
@@ -32,14 +32,13 @@ public static class TextScrambler
             }
             else
             {
-                int i = Rnd.Next(0, WeirdSymbols.Length);
+                int i = RNG.GetRandomNumber(0, WeirdSymbols.Length);
                 mapped.Add(WeirdSymbols[i]);    
             }
         }
         return  new string(mapped.ToArray());
     } 
 }
-
 
 public class Item : MonoBehaviour
 {
