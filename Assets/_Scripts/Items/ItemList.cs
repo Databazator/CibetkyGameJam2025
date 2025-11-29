@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-
-namespace _Scripts.Items
+using UnityEngine;
+public class ItemList : MonoBehaviour
 {
-    public class ItemList
-    {
-        public List<Item> AllItems = new List<Item>();
-    }
+   public List<Item> items = new List<Item>();
 }

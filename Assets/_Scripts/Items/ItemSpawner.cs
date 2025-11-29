@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-
-    public List<Item> items = new List<Item>();
+    
     private PlayerHealth _playerHealth;
     public GameObject spawnTarget;
     public GameObject altar;
-
+    public ItemList allItems;
+    
     private List<Item> _commons;
     private List<Item> _uncommons;
     private List<Item> _rares;
@@ -28,9 +28,9 @@ public class ItemSpawner : MonoBehaviour
         {
             Debug.LogError("PlayerHealth object is missing a PlayerHealth component");
         }
-        _commons = items.FindAll(item => item.rarity is Item.Rarity.Common);
-        _uncommons = items.FindAll(item => item.rarity is Item.Rarity.Uncommon);
-        _rares = items.FindAll(item => item.rarity is Item.Rarity.Rare);
+        _commons = allItems.items.FindAll(item => item.rarity is Item.Rarity.Common);
+        _uncommons = allItems.items.FindAll(item => item.rarity is Item.Rarity.Uncommon);
+        _rares = allItems.items.FindAll(item => item.rarity is Item.Rarity.Rare);
         // SpawnRandomItem();
     }
 
