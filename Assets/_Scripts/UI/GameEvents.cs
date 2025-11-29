@@ -15,4 +15,5 @@ public static class GameEvents
     public static Action GameUnpaused;
 
     public static Action<Item> ItemFound;
+    public static Action<Item> ItemAccepted;
 }
