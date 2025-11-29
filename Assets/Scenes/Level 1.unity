@@ -237,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 939367953469992461, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1926575050525846541, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -283,6 +287,10 @@ PrefabInstance:
       objectReference: {fileID: 23800000, guid: 625e01fc66cceba4289f03b87b3831f2, type: 2}
     - target: {fileID: 5343259744613347843, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
       propertyPath: buildOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7425510894166036268, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7724754074884963744, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
@@ -544,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 1412683385345365160, guid: 45655268b217b3fa493e5107b28b64ee, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938554514171523771, guid: 45655268b217b3fa493e5107b28b64ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9172947294229690116, guid: 45655268b217b3fa493e5107b28b64ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1165,6 +1177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f2877d51d81d640a4338fd5e3b2727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1219700311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2664081443862069303, guid: 45655268b217b3fa493e5107b28b64ee, type: 3}
+  m_PrefabInstance: {fileID: 519901379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaa752163538d7a59247e96bb21de34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1298478474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1267,6 +1290,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2039547010055904989, guid: 6b011c12397febc40970053715c155fc, type: 3}
   m_PrefabInstance: {fileID: 7579972790401719260}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1398934132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7724754074884963744, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
+  m_PrefabInstance: {fileID: 128244396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaa752163538d7a59247e96bb21de34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!114 &1426827007 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3670267537660656952, guid: 57785817d7aa8b843b63a8cb46b5593e, type: 3}
@@ -1603,6 +1637,14 @@ PrefabInstance:
       propertyPath: itemSpawner
       value: 
       objectReference: {fileID: 483473876}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: Doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: 'Doors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1219700311}
     - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: spawners.Array.size
       value: 9
@@ -2043,6 +2085,14 @@ PrefabInstance:
       propertyPath: itemSpawner
       value: 
       objectReference: {fileID: 1426827007}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: Doors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: 'Doors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1398934132}
     - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: spawners.Array.size
       value: 1

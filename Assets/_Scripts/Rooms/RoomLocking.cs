@@ -11,6 +11,7 @@ public class RoomLocking : MonoBehaviour
     public Action RoomLocked;
     public Action RoomUnlocked;
     public List<ItemSpawner> ItemSpawners = new List<ItemSpawner>();
+    public List<DoorController> Doors = new List<DoorController>();
     
     void LockRoom()
     {
@@ -44,6 +45,10 @@ public class RoomLocking : MonoBehaviour
         foreach(var itemSpawner in ItemSpawners)
         {
             itemSpawner.SpawnRandomItem();
+        }
+        foreach(var door in Doors)
+        {
+            door.Open();
         }
     }
 

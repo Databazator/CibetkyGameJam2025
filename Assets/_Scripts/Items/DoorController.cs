@@ -11,34 +11,32 @@ public class DoorController : MonoBehaviour
     void Start()
     {
         _nextRoomBuilder = nextRoom.GetComponent<RoomConstructionEffect>();
+        _particles = GetComponent<ParticleSystem>();
         Close();
         _passable = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && _passable)
+        if (_passable && other.CompareTag("Player"))
         {
             _nextRoomBuilder.ConstructRoom();
             Close();
         }
     }
 
-    void Open()
+    public void Open()
     {
-        _passable = true;
+        gameObject.SetActive(true);
         _particles.Play();
+        _passable = true;
     }
 
     void Close()
     {
         _passable = false;
-        // _particles.Stop();
+        _particles.Stop();
+        gameObject.SetActive(false);
     }
 }
