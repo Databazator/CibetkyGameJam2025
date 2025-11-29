@@ -220,7 +220,7 @@ MonoBehaviour:
   _introScreen: {fileID: 82596173}
   _gameScreen: {fileID: 1795043052}
   _gameOverScreen: {fileID: 1640695177}
-  _levelEndShopScreen: {fileID: 0}
+  _shopScreen: {fileID: 0}
 --- !u!4 &468621002
 Transform:
   m_ObjectHideFlags: 0
@@ -269,7 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b605f1124e7de4998ee0505c77028b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Levels: []
+  Levels:
+  - Scenes/Enemy
   LevelIndex: 0
 --- !u!4 &497653332
 Transform:
@@ -439,7 +440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2043432584
 MonoBehaviour:
   m_ObjectHideFlags: 0
