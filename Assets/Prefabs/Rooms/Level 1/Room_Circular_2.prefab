@@ -167,7 +167,7 @@ MonoBehaviour:
   FloorTiles: []
   Obstacles: []
   AdditionalObjects: []
-  buildOnStart: 1
+  buildOnStart: 0
   ItemConstructionDuration: 0
   PhaseDuration: 0
   EarlyNextPhaseTime: 0

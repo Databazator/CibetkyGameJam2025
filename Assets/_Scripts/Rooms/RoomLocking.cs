@@ -39,7 +39,6 @@ public class RoomLocking : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.LogError(gameObject.name + "exit");
         if (!triggered && other.gameObject.CompareTag("Player"))
         {
             Debug.Log(gameObject.name + " Player has entered the room.");

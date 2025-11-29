@@ -75,7 +75,7 @@ MonoBehaviour:
   - {fileID: 8503976666419612119}
   - {fileID: 7355778458260832802}
   AdditionalObjects: []
-  buildOnStart: 1
+  buildOnStart: 0
   ItemConstructionDuration: 0.3
   PhaseDuration: 1.5
   EarlyNextPhaseTime: 0.25

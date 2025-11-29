@@ -36,7 +36,7 @@ public class RoomConstructionEffect : MonoBehaviour
 
     public void ConstructRoom()
     {
-        //floor phase
+        //floor phase.
         float delay = 0;
         ConstructionPhase(FloorTiles, delay);
         delay += PhaseDuration - EarlyNextPhaseTime;
