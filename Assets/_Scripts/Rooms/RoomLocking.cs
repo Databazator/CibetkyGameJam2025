@@ -10,7 +10,7 @@ public class RoomLocking : MonoBehaviour
     private bool triggered = false;
     public Action RoomLocked;
     public Action RoomUnlocked;
-    public ItemSpawner ItemSpawner;
+    public List<ItemSpawner> ItemSpawners = new List<ItemSpawner>();
     
     void LockRoom()
     {
@@ -41,10 +41,9 @@ public class RoomLocking : MonoBehaviour
         Debug.Log(gameObject.name + " Victory! Room unlocked.");
         RoomUnlocked?.Invoke();
         GameEvents.RoomCleared?.Invoke();
-        if (ItemSpawner)
+        foreach(var itemSpawner in ItemSpawners)
         {
-            Debug.Log("Celebrating with item offer.");
-            ItemSpawner.SpawnRandomItem();
+            itemSpawner.SpawnRandomItem();
         }
     }
 

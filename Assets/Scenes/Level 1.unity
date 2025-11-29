@@ -1643,6 +1643,14 @@ PrefabInstance:
       propertyPath: 'spawners.Array.data[8]'
       value: 
       objectReference: {fileID: 1596696623}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: ItemSpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: 'ItemSpawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 483473876}
     - target: {fileID: 2039547010055904989, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2043,6 +2051,14 @@ PrefabInstance:
       propertyPath: 'spawners.Array.data[0]'
       value: 
       objectReference: {fileID: 1298478476}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: ItemSpawners.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 103403410512923484, guid: 6b011c12397febc40970053715c155fc, type: 3}
+      propertyPath: 'ItemSpawners.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1426827007}
     - target: {fileID: 2039547010055904989, guid: 6b011c12397febc40970053715c155fc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.21372043
