@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Wall
+  - Spawner
+  - Entry
   layers:
   - Default
   - TransparentFX
