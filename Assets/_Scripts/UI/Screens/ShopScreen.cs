@@ -8,8 +8,8 @@ public class ShopScreen : UIScreen
     Item _currentItem;
     Label _itemNameLabel;
     Label _itemDescLabel;
-    VisualElement _rarityGlow;
-    Image _itemImage;
+    // VisualElement _rarityGlow;
+    // Image _itemImage;
 
     public override void Initialize()
     {
@@ -23,8 +23,8 @@ public class ShopScreen : UIScreen
 
         _itemNameLabel = _root.Q("ItemName") as Label;
         _itemDescLabel = _root.Q("ItemDescription") as Label;
-        _rarityGlow = _root.Q("RarityGlow") as VisualElement;
-        _itemImage = _root.Q("ItemSprite") as Image;
+        // _rarityGlow = _root.Q("RarityGlow") as VisualElement;
+        // _itemImage = _root.Q("ItemSprite") as Image;
     }
 
     public void SetItem(Item item)
@@ -32,7 +32,7 @@ public class ShopScreen : UIScreen
         _currentItem = item;
         _itemNameLabel.text = item.itemName;
         _itemDescLabel.text = item.itemDescription;
-        _itemImage.sprite = item.itemIcon;
+        // _itemImage.sprite = item.itemIcon;
         // Change tint of background image based on rarity
         Color glowColor = Color.white;
         switch (item.itemRarity)
@@ -53,7 +53,15 @@ public class ShopScreen : UIScreen
             //     glowColor = new Color(1f, 223f / 255f, 0f); // Gold
             //     break;
         }
-        _rarityGlow.style.unityBackgroundImageTintColor = glowColor;
+        // _rarityGlow.style.unityBackgroundImageTintColor = glowColor;
+        // Set glow to the item name label as well using box shadow
+        _itemNameLabel.style.boxShadow = new StyleBoxShadow(new BoxShadow()
+        {
+            color = glowColor,
+            offset = new Vector2(0, 0),
+            blurRadius = 10,
+            spreadRadius = 5
+        });
     }
 
     private void OnAcceptClicked()
