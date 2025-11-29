@@ -216,12 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4b8f695df33bb4cb7a974952ed45e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  skipIntro: 0
+  skipIntro: 1
   SceneLoader: {fileID: 497653331}
   _introScreen: {fileID: 82596173}
   _gameScreen: {fileID: 1795043052}
   _gameOverScreen: {fileID: 0}
-  _levelEndShopScreen: {fileID: 0}
+  _levelEndShopScreen: {fileID: 2043432586}
 --- !u!4 &468621002
 Transform:
   m_ObjectHideFlags: 0
