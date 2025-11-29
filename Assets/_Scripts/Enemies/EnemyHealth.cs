@@ -20,6 +20,17 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
+        UpdateHealthBar();
+    }
+
+    void UpdateHealthBar()
+    {
+        // Update health bar UI if applicable
+        var healthBar = GetComponentInChildren<HealthBar>();
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth / maxHealth);
+        }
     }
 
     void Die()
