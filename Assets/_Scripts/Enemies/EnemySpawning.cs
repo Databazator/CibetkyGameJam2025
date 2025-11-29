@@ -1,11 +1,12 @@
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class EnemySpawning : MonoBehaviour
 {
     public int numberOfEnemies = 5;
     private int remainingEnemies;
     public GameObject enemyPrefab;
-    public GameObject spawnArea;
+    public float SpawnDistance = 10f;
     private bool defeated = false;
     private RoomLocking roomLocking;
 
@@ -43,18 +44,14 @@ public class EnemySpawning : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            Vector3 randomPosition = new Vector3(
-                Random.Range(-spawnArea.transform.localScale.x * 2, spawnArea.transform.localScale.x * 2),
-                spawnArea.transform.position.y + 1f,
-                Random.Range(-spawnArea.transform.localScale.z * 2, spawnArea.transform.localScale.z * 2)
-            );
-            var enemy = Instantiate(enemyPrefab, spawnArea.transform.position + randomPosition, Quaternion.identity);
+            var randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+            var oneLongVectorWithAngle = new Vector3(Mathf.Cos(randomAngle), 0f, Mathf.Sin(randomAngle)).normalized;
+            var randomPosition = oneLongVectorWithAngle * SpawnDistance;
+            var enemy = Instantiate(enemyPrefab, transform.position + randomPosition, Quaternion.identity);
             // Add enemy under the spawner in the room
             enemy.transform.parent = this.transform;
             // Set room
             var behavior = enemy.GetComponent<EnemyBehavior>();
-            behavior.roomBottomLeft = spawnArea.transform.position - spawnArea.transform.localScale;
-            behavior.roomTopRight = spawnArea.transform.position + spawnArea.transform.localScale;
             // Set name
             behavior.enemyName = "Enemy_" + i;
             var health = enemy.GetComponent<EnemyHealth>();

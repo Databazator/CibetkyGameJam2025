@@ -57,6 +57,12 @@ public class PlayerController : MonoBehaviour
             HandleDash();
         }
 
+        if(transform.position.y < -50f)
+        {
+            Debug.LogWarning("Player fell out of bounds, dying...");
+            GetComponent<PlayerHealth>()?.DealDamage(9999f);
+        }
+
         HandleAnimations();
     }
 

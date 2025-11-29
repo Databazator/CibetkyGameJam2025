@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.AI.Navigation;
 using System.Collections.Generic;
 
 public class EnemyBehavior : MonoBehaviour
@@ -20,9 +21,6 @@ public class EnemyBehavior : MonoBehaviour
 
     public string enemyName;
     public GameObject projectile;
-    
-    public Vector3 roomBottomLeft;
-    public Vector3 roomTopRight;
 
     private Vector3 wanderPosition;
     private bool moved = false;
@@ -100,7 +98,7 @@ public class EnemyBehavior : MonoBehaviour
     void Wander()
     {
         // Wander to a random direction slowly
-        if (wanderPosition == Vector3.zero || Vector3.Distance(transform.position, wanderPosition) < 1f)
+        if (wanderPosition == Vector3.zero || Vector3.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(wanderPosition.x, wanderPosition.z)) < 1f)
         {
             Debug.Log(enemyName + " is looking for wander target.");
             // Don't wander outside the room area
@@ -128,11 +126,11 @@ public class EnemyBehavior : MonoBehaviour
         Vector3 randomDirection = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-10f, 10f)).normalized * Random.Range(5f, 15f);
         Vector3 potentialPosition = transform.position + randomDirection;
 
-        // Set temporarily y to 0 for bounds checking
-        if (potentialPosition.x >= roomBottomLeft.x && potentialPosition.x <= roomTopRight.x &&
-            potentialPosition.z >= roomBottomLeft.z && potentialPosition.z <= roomTopRight.z)
+        // Check x and z coords against navmesh bounds
+        var found = UnityEngine.AI.NavMesh.SamplePosition(potentialPosition, out var hit, 1.0f, UnityEngine.AI.NavMesh.AllAreas);
+        if (found)
         {
-            wanderPosition = potentialPosition;
+            wanderPosition = hit.position;
         }
         else
         {

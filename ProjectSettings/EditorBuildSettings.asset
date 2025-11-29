@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScene.unity
     guid: c1bdbc0bb3f81024dbd511f2ec0e4b97
   - enabled: 1
-    path: Assets/Scenes/Enemy.unity
-    guid: 077b59d4a1547504285b2003ef1d7232
+    path: Assets/Scenes/Level 1.unity
+    guid: 1b4073bc1e6e1b14cb28c02caa857653
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

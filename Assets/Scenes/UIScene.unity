@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Levels:
-  - Scenes/Enemy
+  - Scenes/Level 1
   LevelIndex: 0
 --- !u!4 &497653332
 Transform:
