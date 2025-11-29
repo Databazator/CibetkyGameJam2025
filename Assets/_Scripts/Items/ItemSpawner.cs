@@ -14,10 +14,10 @@ public class ItemSpawner : MonoBehaviour
     private List<Item> _uncommons;
     private List<Item> _rares;
 
-    private readonly float _commonRarity = 0.6f;
-    private readonly float _uncommonRarity = 0.35f;
-    private readonly float _rareRarity = 0.05f;
-    private readonly float _luckStrength = 0.8f;
+    private readonly float _commonRarity = 1f;
+    private readonly float _uncommonRarity = 0.4f;
+    private readonly float _rareRarity = 0.1f;
+    private readonly int _luckStrength = 10;
     
     void Start()
     {
@@ -58,21 +58,21 @@ public class ItemSpawner : MonoBehaviour
     {
         float pool = RNG.GetRandomFloat();
         Debug.Log("pool is " + pool);
-        float luckMod = Sig(GetLuck(), _luckStrength);
-        Debug.Log("luck mod is " + luckMod);
-        if (pool - luckMod <= _rareRarity)
+        float fortune = 1 - BlackMagic(GetLuck(), pool, _luckStrength);
+        Debug.Log("luck mod is " + fortune);
+        if (fortune <= _rareRarity)
         {
             Debug.Log("Selected rare pool");
             return _rares;
         }
 
-        if (pool - luckMod <= _uncommonRarity)
+        if (fortune <= _uncommonRarity)
         {
             Debug.Log("Selected uncommon pool");
             return _uncommons;   
         }
 
-        if (pool - luckMod <= _commonRarity)
+        if (fortune <= _commonRarity)
         {
             Debug.Log("Selected common pool");
             return _commons;
@@ -91,13 +91,16 @@ public class ItemSpawner : MonoBehaviour
     private float GetLuck()
     {
         var missingMaxHealth = _playerHealth.startingMaxHealth - _playerHealth.maxHealth;
-        float luck = missingMaxHealth / (_playerHealth.startingMaxHealth / 100);
+        float luck = missingMaxHealth / _playerHealth.startingMaxHealth;
         Debug.Log("Luck is " + luck);
         return luck;
     }
 
-    private float Sig(float luck, float steepness)
+    private float BlackMagic(float luck, float pool, int str)
     {
-        return 1f / (1f + (float)Math.Exp(-steepness * luck));
+        var strPowLuck = Math.Pow(str, luck);
+        var b = 1 +  strPowLuck;
+        double res = Math.Log(1 + pool * strPowLuck, b);
+        return (float)res;
     }
 }
