@@ -16,18 +16,27 @@ public class EnemyProjectile : MonoBehaviour
         
     }
 
+    public void HitPlayer(GameObject player)
+    {
+        // Apply damage to player
+        var playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.DealDamage(damage);
+        }
+        
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Projectile collided with " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Apply damage to player
-            var playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.DealDamage(damage);
-            }
+            HitPlayer(collision.gameObject);
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

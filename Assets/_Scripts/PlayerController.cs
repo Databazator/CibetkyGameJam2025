@@ -190,4 +190,17 @@ public class PlayerController : MonoBehaviour
     {
         _actions.Player.Disable();
     }
+    
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Check if the collided object is a projectile
+        if (hit.gameObject.CompareTag("EnemyProjectile"))
+        {
+            var projectile = hit.gameObject.GetComponent<EnemyProjectile>();
+            if (projectile != null)
+            {
+                projectile.HitPlayer(this.gameObject);
+            }
+        }
+    }
 }

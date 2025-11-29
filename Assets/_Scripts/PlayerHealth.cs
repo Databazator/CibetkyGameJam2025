@@ -13,8 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        Debug.Log("Player took " + damage + " damage. Current health: " + currentHealth);
         currentHealth -= damage;
+        Debug.Log("Player took " + damage + " damage. Current health: " + currentHealth);
         if (currentHealth <= 0)
         {
             Die();
