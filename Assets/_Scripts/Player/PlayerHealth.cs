@@ -1,10 +1,13 @@
 using UnityEngine;
+using _Scripts.Utils;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float startingMaxHealth = 100f;
     public float maxHealth = 100f;
     private float currentHealth;
+
+    public float DeflectionChance = 0f; // Chance to deflect incoming damage (0 to 1)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,6 +17,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void DealDamage(float damage)
     {
+        if (TryDeflect())
+        {
+            Debug.Log("Player deflected the damage!");
+            return;
+        }
+
         currentHealth -= damage;
         Debug.Log("Player took " + damage + " damage. Current health: " + currentHealth);
         if (currentHealth <= 0)
@@ -64,5 +73,25 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player has died.");
         GameEvents.GameOver();
         gameObject.SetActive(false);
+    }
+
+    public bool TryDeflect()
+    {
+        float roll = RNG.GetRandomFloat();
+        return roll < DeflectionChance;
+    }
+
+    public void AddDeflectionChance(float amount)
+    {
+        DeflectionChance += amount;
+    }
+
+    public void RemoveDeflectionChance(float amount)
+    {
+        DeflectionChance -= amount;
+        if (DeflectionChance < 0f)
+        {
+            DeflectionChance = 0f;
+        }
     }
 }

@@ -1,15 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using _Scripts.Utils;
 using UnityEngine;
-using Random = System.Random;
-
-[Serializable]
-public class Modifier {
-    public Item.Keyword keyword;
-    public float value;
-}
 
 public static class TextScrambler
 {
@@ -43,8 +34,7 @@ public static class TextScrambler
 public class Item : MonoBehaviour
 {
     public enum Rarity {Common, Uncommon, Rare};
-    public enum Keyword {Deflect, Move, Attack, Regain, Discount, Fury, Dash}
-
+    
     public string itemName;
     public string description;
     public Rarity rarity;
@@ -59,16 +49,26 @@ public class Item : MonoBehaviour
     {
         return TextScrambler.ScrambleText(description);
     }
-    
+
     public void ApplyEffects(GameObject player)
     {
-        // Implement effect application logic here
-        Debug.LogError("Applying effects not implemented yet");
+        var playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.DecreaseMaxHealth(cost);
+        cleansed = true;
+
+        foreach (var modifier in modifiers)
+        {
+            modifier.Apply(player);
+        }
     }
     
     public void RemoveEffects(GameObject player)
     {
-        // Implement effect removal logic here
-        Debug.LogError("Removing effects not implemented yet");
+        foreach(var modifier in modifiers)
+        {
+            modifier.Remove(player);
+        }
+
+        // No cost returns tho
     }
 }

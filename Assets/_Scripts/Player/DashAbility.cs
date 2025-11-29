@@ -73,4 +73,9 @@ public class DashAbility : PlayerAbility
             _dashTimer -= Time.deltaTime;
         }
     }
+
+    public void MultiplicateDashDistance(float factor)
+    {
+        DashDistance *= factor;
+    }
 }

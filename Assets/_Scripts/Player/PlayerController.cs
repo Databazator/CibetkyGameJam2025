@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public InputAction interactAction;
 
     public float MovementSpeed;
-    public const float GRAVITY = 10f;
+    public float GRAVITY = Physics.gravity.y;
     private Vector2 _lastMovementInput;
 
     public PlayerAbility DashAbility;
@@ -203,5 +203,10 @@ public class PlayerController : MonoBehaviour
                 projectile.HitPlayer(this.gameObject);
             }
         }
+    }
+
+    public void MultiplicateMoveSpeed(float percentage)
+    {
+        MovementSpeed *= percentage;
     }
 }

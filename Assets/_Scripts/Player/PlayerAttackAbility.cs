@@ -57,4 +57,8 @@ public class PlayerAttackAbility : PlayerAbility
         }
     }
 
+    public void MultiplicateAttackSpeed(float factor)
+    {
+        cooldownTimer *= factor;
+    }
 }

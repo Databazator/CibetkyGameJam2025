@@ -1,1 +1,1 @@
-- how many HP the player regains at the end of a level
+- how max many HP the player regains at the end of a level
