@@ -90,7 +90,6 @@ public class AltarController : MonoBehaviour
 
     void Update()
     {
-        
         if (_playerController != null)
         {
             bool wasInteractPressed = _playerController.interactAction.ReadValue<float>() > 0f;
@@ -99,7 +98,7 @@ public class AltarController : MonoBehaviour
                 // Trigger shopping UI
                 GameEvents.ItemFound.Invoke(_itemOnStand);
                 _interactable = false;
-            }   
+            }
         }
     }
 }

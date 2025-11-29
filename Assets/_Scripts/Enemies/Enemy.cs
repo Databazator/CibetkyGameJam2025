@@ -117,6 +117,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        // TODO: Fix clipping by waiting for a bit before repeating this
         // stop wandering
         wanderPosition = Vector3.zero;
     }

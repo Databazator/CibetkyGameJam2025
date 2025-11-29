@@ -7,7 +7,7 @@ public class ItemSpawner : MonoBehaviour
 {
     
     private PlayerHealth _playerHealth;
-    public GameObject spawnTarget;
+    // public GameObject spawnTarget;
     public GameObject altar;
     public ItemList allItems;
     
@@ -46,7 +46,7 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnRandomItem()
     {
-        var spawnPosition = spawnTarget.transform.position;
+        // var spawnPosition = spawnTarget.transform.position;
         Item selectedItem = GetRandomItem();
         if (selectedItem == null)
         {

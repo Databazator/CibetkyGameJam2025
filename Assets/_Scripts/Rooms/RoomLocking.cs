@@ -1,16 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class RoomLocking : MonoBehaviour
 {
     private int spawnersRemaining = 0;
     public List<EnemySpawning> spawners = new List<EnemySpawning>();
     private bool triggered = false;
+    public Action RoomLocked;
+    public Action RoomUnlocked;
     
     void LockRoom()
     {
-        spawners.ForEach(spawner => spawner.StartWave());
+        spawners.ForEach(spawner => spawner.StartWave(this));
         spawnersRemaining = spawners.Count;
         Debug.Log(gameObject.name + " Room locked. Spawners to defeat: " + spawnersRemaining);
         
@@ -35,6 +38,8 @@ public class RoomLocking : MonoBehaviour
     void UnlockRoom()
     {
         Debug.Log(gameObject.name + " Victory! Room unlocked.");
+        RoomUnlocked?.Invoke();
+        GameEvents.RoomCleared.Invoke();
     }
 
     void OnTriggerExit(Collider other)
