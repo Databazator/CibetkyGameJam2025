@@ -141,7 +141,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void ShootAtPlayer(GameObject player)
     {
-        Debug.Log(enemyName + " is shooting at the player!");
+        //Debug.Log(enemyName + " is shooting at the player!");
         // Eject a bullet towards the player
         if (currentAmmo <= 0 || Time.time - lastAttackTime < magazineDelay) return;
 

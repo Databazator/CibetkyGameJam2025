@@ -52,7 +52,7 @@ public class RoomLocking : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (!triggered && other.gameObject.CompareTag("Player"))
         {
