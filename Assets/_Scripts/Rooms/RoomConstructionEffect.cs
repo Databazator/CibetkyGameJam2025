@@ -84,7 +84,7 @@ public class RoomConstructionEffect : MonoBehaviour
         var aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
         aSource.clip = clip; // define the clip
         // set other aSource properties here, if desired
-        aSource.pitch = UnityEngine.Random.Range(-1f, 1f);
+        aSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
         aSource.Play(); // start the sound
         StartCoroutine(AudioFade.FadeOut(new Sound()
         {

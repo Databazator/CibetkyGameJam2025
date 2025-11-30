@@ -30,12 +30,17 @@ public class AudioFade
         while (framesPassed <= frameCount)
         {
             var t = framesPassed++ / frameCount;
-            sound.source.volume = Interpolate(startVolume, 0, t);
+
+            if(sound.source != null)
+              sound.source.volume = Interpolate(startVolume, 0, t);
             yield return null;
         }
-
-        sound.source.volume = 0;
-        sound.source.Pause();
+        
+        if(sound.source != null)
+        {
+          sound.source.volume = 0;
+          sound.source.Pause();
+        }
     }
     public static IEnumerator FadeIn(Sound sound, float fadingTime, Func<float, float, float, float> Interpolate)
     {
@@ -49,10 +54,14 @@ public class AudioFade
         while (framesPassed <= frameCount)
         {
             var t = framesPassed++ / frameCount;
-            sound.source.volume = Interpolate(0, resultVolume, t);
+            if(sound.source != null)
+              sound.source.volume = Interpolate(0, resultVolume, t);
             yield return null;
         }
 
-        sound.source.volume = resultVolume;
+        if(sound.source != null)
+        {
+          sound.source.volume = resultVolume;
+        }
     }
 }

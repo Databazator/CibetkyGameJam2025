@@ -1,11 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerAttackEffect : MonoBehaviour
 {
     public float AttackDamage;
 
     public LayerMask EffectHitLayer;
+    
+    public List<AudioClip> AttackSounds;
 
     //public Transform EffectShape;
     public GameObject HitboxObject;
@@ -28,6 +31,17 @@ public class PlayerAttackEffect : MonoBehaviour
     {
         //DOVirtual.DelayedCall(HitboxLifetime, () => Destroy(HitboxObject));
         DOVirtual.DelayedCall(EffectLifetime, () => Destroy(this.gameObject));
+        if (AttackSounds != null && AttackSounds.Count > 0)
+        {
+            var tmpGO = new GameObject("TempAudio");
+            tmpGO.transform.position = this.transform.position;
+            var audioSource = tmpGO.AddComponent<AudioSource>();
+            audioSource.pitch = Random.Range(0.8f, 1.2f);
+            var clip = AttackSounds[Random.Range(0, AttackSounds.Count)];
+            audioSource.PlayOneShot(clip);
+            Destroy(tmpGO, clip.length + 5f); // destroy object after clip duration
+
+        }
 
         //EffectShape.localScale = Vector3.zero;
 
