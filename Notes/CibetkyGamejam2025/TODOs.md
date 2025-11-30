@@ -1,0 +1,8 @@
+- [ ] Inventory transition between levels
+- [ ] Level 3
+- [ ] Level 1
+- [ ] Win screen
+- [ ] Zvuky
+- [ ] VFX
+- [ ] Attack clipping through obstacles
+- [ ] Switching?

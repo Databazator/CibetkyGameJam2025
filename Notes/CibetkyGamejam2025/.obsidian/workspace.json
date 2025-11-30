@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Items/Item list.md",
+                "file": "TODOs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Item list"
+              "title": "TODOs"
             }
           }
         ]
@@ -185,9 +185,10 @@
   },
   "active": "c1acc724015f4337",
   "lastOpenFiles": [
+    "Items/Item list.md",
+    "TODOs.md",
     "Items/Keywords/fury.md",
     "Items/Keywords/regain.md",
-    "Items/Item list.md",
     "Items/Keywords/move.md",
     "Items/Keywords/discount.md",
     "Items/Keywords/deflect.md",
