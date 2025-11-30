@@ -24,7 +24,7 @@ public class RoomLocking : MonoBehaviour
         if(spawnersRemaining == 0)
         {
             Debug.Log(gameObject.name + " All spawners defeated in the room.");
-            UnlockRoom();
+            UnlockNextPhase();
         }
     }
 
@@ -35,7 +35,7 @@ public class RoomLocking : MonoBehaviour
         if (spawnersRemaining <= 0)
         {
             Debug.Log(gameObject.name + " All spawners defeated in the room.");
-            UnlockRoom();
+            UnlockNextPhase();
         }
     }
 
