@@ -18,6 +18,7 @@ public class EnemyBehavior : MonoBehaviour
     private int currentAmmo;
     public float magazineDelay = 1f;
     public float coneSize = 0f;
+    public const float GRAVITY = 9.81f;
 
     public string enemyName;
     public GameObject projectile;
@@ -36,6 +37,9 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Do gravity
+        GetComponent<CharacterController>().Move(Vector3.down * GRAVITY * Time.deltaTime);
+
         // Find the player
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) {

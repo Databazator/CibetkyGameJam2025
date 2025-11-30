@@ -142,8 +142,6 @@ MonoBehaviour:
   coneSize: 360
   enemyName: Zombie
   projectile: {fileID: 7434062762161635128, guid: 79f08f0e5e6ce7944aaa444006ae8211, type: 3}
-  roomBottomLeft: {x: 0, y: 0, z: 0}
-  roomTopRight: {x: 0, y: 0, z: 0}
 --- !u!143 &1164315743782899533
 CharacterController:
   m_ObjectHideFlags: 0

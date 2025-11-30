@@ -102,8 +102,8 @@ public class UIManager : MonoBehaviour
 
     private void UIEOnItemFound(Item item)
     {
-        _shopScreen.SetItem(item);
         UIEvents.ShopOpen.Invoke();
+        _shopScreen.SetItem(item);
     }
 
     private void SwitchScreens(UIScreen newScreen)

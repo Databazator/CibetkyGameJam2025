@@ -8,6 +8,7 @@ public class ShopScreen : UIScreen
     Item _currentItem;
     Label _itemNameLabel;
     Label _itemDescLabel;
+    Label _itemCostLabel;
     // VisualElement _rarityGlow;
     // Image _itemImage;
 
@@ -23,6 +24,7 @@ public class ShopScreen : UIScreen
 
         _itemNameLabel = _root.Q("ItemName") as Label;
         _itemDescLabel = _root.Q("ItemDescription") as Label;
+        _itemCostLabel = _root.Q("ItemCost") as Label;
         // _rarityGlow = _root.Q("RarityGlow") as VisualElement;
         // _itemImage = _root.Q("ItemSprite") as Image;
     }
@@ -32,6 +34,7 @@ public class ShopScreen : UIScreen
         _currentItem = item;
         _itemNameLabel.text = item.itemName;
         _itemDescLabel.text = item.description;
+        _itemCostLabel.text = ": " + item.cost.ToString();
         // _itemImage.sprite = item.itemIcon;
         // Change tint of background image based on rarity
         Color glowColor = Color.white;
