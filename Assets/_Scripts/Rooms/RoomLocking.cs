@@ -12,6 +12,8 @@ public class RoomLocking : MonoBehaviour
     public Action RoomUnlocked;
     public List<ItemSpawner> ItemSpawners = new List<ItemSpawner>();
     public List<DoorController> Doors = new List<DoorController>();
+    public GameObject nextPhaseTrigger;
+    public bool unlocked = false;
     
     void LockRoom()
     {
@@ -37,6 +39,22 @@ public class RoomLocking : MonoBehaviour
         }
     }
 
+    void UnlockNextPhase()
+    {
+        Debug.Log(gameObject.name + "Phase beaten.");
+        if (nextPhaseTrigger != null)
+        {
+            Debug.Log(gameObject.name + "Unlocking next phase");
+            RoomLocking nextTrigger = nextPhaseTrigger.GetComponent<RoomLocking>();
+            nextTrigger.UnlockPhase();
+        }
+        else
+        {
+            Debug.Log(gameObject.name + "All phases beaten. Unlocking next room.");
+            UnlockRoom();
+        }
+    }
+
     void UnlockRoom()
     {
         Debug.Log(gameObject.name + " Victory! Room unlocked.");
@@ -52,9 +70,14 @@ public class RoomLocking : MonoBehaviour
         }
     }
 
+    void UnlockPhase()
+    {
+        this.unlocked = true;
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (!triggered && other.gameObject.CompareTag("Player"))
+        if (unlocked && !triggered && other.gameObject.CompareTag("Player"))
         {
             triggered = true;
             Debug.Log(gameObject.name + " Player has entered the room.");
