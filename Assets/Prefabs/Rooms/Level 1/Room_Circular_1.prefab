@@ -75,10 +75,14 @@ MonoBehaviour:
   - {fileID: 8503976666419612119}
   - {fileID: 7355778458260832802}
   AdditionalObjects: []
+  SoundEffects:
+  - {fileID: 8300000, guid: 252ffb5f6e7193e4a95a74ca27a5a341, type: 3}
+  - {fileID: 8300000, guid: 657226638632ced4590b4b383fa5b7b3, type: 3}
   buildOnStart: 0
   ItemConstructionDuration: 0.3
   PhaseDuration: 1.5
   EarlyNextPhaseTime: 0.25
+  IsRoomConstructed: 0
 --- !u!1 &491515813365025671
 GameObject:
   m_ObjectHideFlags: 0

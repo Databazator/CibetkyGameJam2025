@@ -189,6 +189,9 @@ MonoBehaviour:
   - {fileID: 4727678864520931147}
   AdditionalObjects:
   - {fileID: 1915350755281389325}
+  SoundEffects:
+  - {fileID: 8300000, guid: 252ffb5f6e7193e4a95a74ca27a5a341, type: 3}
+  - {fileID: 8300000, guid: 657226638632ced4590b4b383fa5b7b3, type: 3}
   buildOnStart: 0
   ItemConstructionDuration: 0.3
   PhaseDuration: 1.5

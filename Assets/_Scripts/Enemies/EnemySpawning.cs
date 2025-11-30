@@ -71,7 +71,7 @@ public class EnemySpawning : MonoBehaviour
     public void DefeatEnemy()
     {
         if (defeated) return;
-        
+
         remainingEnemies--;
         Debug.Log("Enemy defeated in spawner, remaining: " + remainingEnemies + ".");
         if (remainingEnemies <= 0 && !spawning && !defeated)
