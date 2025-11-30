@@ -40,6 +40,12 @@ public class EnemyBehavior : MonoBehaviour
         // Do gravity
         GetComponent<CharacterController>().Move(Vector3.down * GRAVITY * Time.deltaTime);
 
+        if(transform.position.y < -50f)
+        {
+            Debug.LogWarning("Enemy fell out of bounds, dying...");
+            GetComponent<EnemyHealth>()?.DealDamage(9999f);
+        }
+
         // Find the player
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) {
