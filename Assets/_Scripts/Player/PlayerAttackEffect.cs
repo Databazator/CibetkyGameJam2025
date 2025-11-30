@@ -7,7 +7,7 @@ public class PlayerAttackEffect : MonoBehaviour
 
     public LayerMask EffectHitLayer;
 
-    public Transform EffectShape;
+    //public Transform EffectShape;
     public GameObject HitboxObject;
     public float HitboxLifetime;
     public float EffectLifetime;
@@ -29,8 +29,8 @@ public class PlayerAttackEffect : MonoBehaviour
         //DOVirtual.DelayedCall(HitboxLifetime, () => Destroy(HitboxObject));
         DOVirtual.DelayedCall(EffectLifetime, () => Destroy(this.gameObject));
 
-        EffectShape.localScale = Vector3.zero;
+        //EffectShape.localScale = Vector3.zero;
 
-        EffectShape.DOScale(Vector3.one, EffectLifetime * 0.65f).SetEase(Ease.OutQuad);
+        //EffectShape.DOScale(Vector3.one, EffectLifetime * 0.65f).SetEase(Ease.OutQuad);
     }
 }

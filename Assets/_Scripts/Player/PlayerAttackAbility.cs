@@ -5,6 +5,7 @@ public class PlayerAttackAbility : PlayerAbility
     public PlayerAttackEffect AttackEffectObject;
     public Animator PlayerAnimator;
     private bool _isAttacking = false;
+    public Transform SpawnLocation;
 
     private float _attackTimer = 0f;
     public float AttackDamage = 5f;
@@ -29,7 +30,7 @@ public class PlayerAttackAbility : PlayerAbility
         PlayerAnimator?.SetTrigger("Attack");
 
         //spawn attack effect that deals with damage
-        Vector3 attackStartPos = transform.position + direction.normalized * 0.5f;
+        Vector3 attackStartPos = SpawnLocation.position + direction.normalized * 0.5f;
         Quaternion attackRotation = Quaternion.LookRotation(direction, Vector3.up);
 
         PlayerAttackEffect attackEffect = Instantiate(AttackEffectObject, attackStartPos, attackRotation) as PlayerAttackEffect;
