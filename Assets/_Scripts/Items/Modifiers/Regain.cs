@@ -9,13 +9,13 @@ public class Regain : Modifier
 
     public override void Apply(GameObject target)
     {
-        var regainComponent = target.GetComponent<RegainAbility>();
+        var regainComponent = target.GetComponentInChildren<RegainAbility>();
         regainComponent.IncreaseRegainAmount(Value);
     }
 
     public override void Remove(GameObject target)
     {
-        var regainComponent = target.GetComponent<RegainAbility>();
+        var regainComponent = target.GetComponentInChildren<RegainAbility>();
         regainComponent.DecreaseRegainAmount(Value);
     }
 }

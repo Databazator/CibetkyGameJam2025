@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerAttackAbility : PlayerAbility
 {
-    public GameObject AttackEffectObject;
+    public PlayerAttackEffect AttackEffectObject;
     public Animator PlayerAnimator;
     private bool _isAttacking = false;
 
     private float _attackTimer = 0f;
+    public float AttackDamage = 5f;
     public float AttackDuration;
 
     public override bool AbilityInUse()
@@ -31,7 +32,8 @@ public class PlayerAttackAbility : PlayerAbility
         Vector3 attackStartPos = transform.position + direction.normalized * 0.5f;
         Quaternion attackRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-        GameObject attackEffect = Instantiate(AttackEffectObject, attackStartPos, attackRotation);
+        PlayerAttackEffect attackEffect = Instantiate(AttackEffectObject, attackStartPos, attackRotation) as PlayerAttackEffect;
+        attackEffect.AttackDamage = AttackDamage;
     }
 
     void AttackEnd()
@@ -64,5 +66,10 @@ public class PlayerAttackAbility : PlayerAbility
     public void MultiplicateAttackSpeed(float factor)
     {
         cooldownTimer *= factor;
+    }
+    
+    public void MultiplicateAttackDamage(float factor)
+    {
+        AttackDamage *= factor;
     }
 }

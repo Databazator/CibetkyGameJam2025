@@ -14,6 +14,7 @@ public class IntroScreen : UIScreen
 
     private void OnPlayClicked()
     {
+        Debug.Log("Play button clicked");
         UIEvents.IntroClosed?.Invoke();
     }
 }

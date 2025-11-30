@@ -9,13 +9,13 @@ public class Attack : Modifier
 
     public override void Apply(GameObject target)
     {
-        var attackComponent = target.GetComponent<PlayerAttackEffect>();
+        var attackComponent = target.GetComponentInChildren<PlayerAttackAbility>();
         attackComponent.MultiplicateAttackDamage(1 + Value);
     }
 
     public override void Remove(GameObject target)
     {
-        var attackComponent = target.GetComponent<PlayerAttackEffect>();
+        var attackComponent = target.GetComponentInChildren<PlayerAttackAbility>();
         attackComponent.MultiplicateAttackDamage(1 / (1 + Value));
     }
 }

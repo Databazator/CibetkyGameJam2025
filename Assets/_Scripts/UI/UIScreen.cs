@@ -29,6 +29,8 @@ public abstract class UIScreen : MonoBehaviour
 
     public virtual void Show()
     {
+        gameObject.SetActive(true);
+        Initialize();
         _root.style.display = DisplayStyle.Flex;
         _root.AddToClassList(VisibleClass);
         _root.BringToFront();
@@ -39,5 +41,6 @@ public abstract class UIScreen : MonoBehaviour
     {
         _root.AddToClassList(HiddenClass);
         _root.RemoveFromClassList(VisibleClass);
+        gameObject.SetActive(false);
     }
 }

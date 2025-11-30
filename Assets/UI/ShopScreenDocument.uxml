@@ -6,20 +6,16 @@
             <ui:Label text="You found an artefact!" name="ShopLabel" class="text-header" />
         </ui:VisualElement>
         <ui:Button name="ShopItem" emoji-fallback-support="true" class="shopItem" style="flex-shrink: 1; flex-direction: row;">
-            <ui:VisualElement name="InfoContainer" style="flex-grow: 0; flex-direction: column; padding-left: 0; align-content: center; align-items: center; justify-content: center;">
+            <ui:VisualElement name="InfoContainer" style="flex-grow: 1; flex-direction: column; padding-left: 0; align-content: center; align-items: center; justify-content: center;">
                 <ui:VisualElement name="NameIcon" style="flex-grow: 1; flex-direction: column; padding-left: 0; align-content: center; align-items: center; justify-content: flex-start;">
-                    <ui:Label text="Tear of a Priestess" name="ItemName" class="itemTextLabel" style="margin-top: 24px; margin-bottom: 24px; margin-left: 4px; padding-left: 2px;" />
-                    <!-- <ui:VisualElement picking-mode="Ignore" name="ItemIcon">
-                        <ui:VisualElement picking-mode="Ignore" name="RarityGlow" style="width: 210px; height: 210px; background-image: url(&quot;project://database/Assets/Textures/glow.png?fileID=2800000&amp;guid=96fdab7a0d845404fbfb65feb396e687&amp;type=3#glow&quot;); align-items: auto; align-self: center; align-content: auto; position: absolute; -unity-background-image-tint-color: rgb(255, 242, 0); background-size: 100% 100%; top: -5px;" />
-                        <ui:Image picking-mode="Ignore" name="ItemSprite" style="width: 200px; height: 200px; background-image: url(&quot;project://database/Assets/Textures/frame.png?fileID=2800000&amp;guid=47fce14a8a61791419c6f7a2fbdbb396&amp;type=3#frame&quot;); align-items: auto; align-self: center; align-content: auto; -unity-background-image-tint-color: rgb(255, 255, 255);" />
-                    </ui:VisualElement> -->
+                    <ui:Label text="Tear of a Priestess" name="ItemName" class="itemTextLabel item-glow" style="margin-top: 24px; margin-bottom: 24px; margin-left: 4px; padding-left: 2px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="HealthCostContainer" style="flex-grow: 0.3; flex-direction: row; padding-left: 0; align-content: center; align-items: center; justify-content: center;">
                     <ui:VisualElement name="HealthSymbol" style="flex-grow: 0; flex-shrink: 0; width: 40px; height: 40px; align-items: center; align-self: center; align-content: flex-start; background-image: url(&quot;project://database/Assets/UI/Themes/UnityDefaultRuntimeTheme.tss?fileID=7433338533053954386&amp;guid=fbbdadde4b9d5ad45ad79e3ecc477e59&amp;type=3#check@2x&quot;);" />
                     <ui:Label text=": Costs this amount bitch" class="itemTextLabel" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Label text="Item description&#10;and stats&#10;an shit&#10;but in a single label&#10;with new line symbols&#10;because why not" name="ItemDescription" class="itemTextLabel" style="flex-grow: 1; align-items: auto; align-self: auto; -unity-text-align: middle-center;" />
+            <ui:Label text="Item description&#10;and stats&#10;an shit&#10;but in a single label&#10;with new line symbols&#10;because why not" name="ItemDescription" class="itemTextLabel" style="flex-grow: 6; align-items: auto; align-self: auto; -unity-text-align: middle-center; flex-wrap: wrap;" />
         </ui:Button>
         <ui:VisualElement name="OptionsContainer" class="center" style="flex-grow: 0; flex-direction: row; margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;">
             <ui:VisualElement name="ButtonContainer" class="center">

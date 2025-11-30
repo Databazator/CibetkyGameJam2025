@@ -54,14 +54,8 @@ public class ShopScreen : UIScreen
             //     break;
         }
         // _rarityGlow.style.unityBackgroundImageTintColor = glowColor;
-        // Set glow to the item name label as well using box shadow
-        // _itemNameLabel.style.boxShadow = new StyleBoxShadow(new BoxShadow()
-        // {
-        //     color = glowColor,
-        //     offset = new Vector2(0, 0),
-        //     blurRadius = 10,
-        //     spreadRadius = 5
-        // });
+        // Set glow to the item name label as well using shadow
+        _itemNameLabel.style.unityTextOutlineColor = glowColor;
     }
 
     private void OnAcceptClicked()

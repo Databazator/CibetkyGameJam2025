@@ -9,13 +9,13 @@ public class Dash : Modifier
 
     public override void Apply(GameObject target)
     {
-        var dashComponent = target.GetComponent<DashAbility>();
+        var dashComponent = target.GetComponentInChildren<DashAbility>();
         dashComponent.MultiplicateDashDistance(1 + Value);
     }
 
     public override void Remove(GameObject target)
     {
-        var dashComponent = target.GetComponent<DashAbility>();
+        var dashComponent = target.GetComponentInChildren<DashAbility>();
         dashComponent.MultiplicateDashDistance(1 / (1 + Value));
     }
 }

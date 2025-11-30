@@ -56,9 +56,9 @@ public class RoomLocking : MonoBehaviour
     {
         if (!triggered && other.gameObject.CompareTag("Player"))
         {
+            triggered = true;
             Debug.Log(gameObject.name + " Player has entered the room.");
             LockRoom();
-            triggered = true;
         }
     }
 }

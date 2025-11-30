@@ -33,9 +33,4 @@ public class PlayerAttackEffect : MonoBehaviour
 
         EffectShape.DOScale(Vector3.one, EffectLifetime * 0.65f).SetEase(Ease.OutQuad);
     }
-
-    public void MultiplicateAttackDamage(float factor)
-    {
-        AttackDamage *= factor;
-    }
 }

@@ -10,7 +10,7 @@ public class EnemyBehavior : MonoBehaviour
     public float visibleRange = 40f;
     public float shootingRange = 10f;
     public float attackCooldown = 2f;
-    private float lastAttackTime = -2f;
+    private float lastAttackTime = 0f;
     public float walkCooldown = 3f;
     private float lastWalkingTime = -3f;
     public int magazineSize = 1;
@@ -29,7 +29,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         currentAmmo = magazineSize;
-        lastAttackTime = -attackCooldown;
+        lastAttackTime = Time.time - attackCooldown / 2f;
         lastWalkingTime = -walkCooldown;
     }
 

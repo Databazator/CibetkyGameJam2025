@@ -9,13 +9,13 @@ public class Deflect : Modifier
 
     public override void Apply(GameObject target)
     {
-        var deflectComponent = target.GetComponent<PlayerHealth>();
+        var deflectComponent = target.GetComponentInChildren<PlayerHealth>();
         deflectComponent.AddDeflectionChance(Value);
     }
 
     public override void Remove(GameObject target)
     {
-        var deflectComponent = target.GetComponent<PlayerHealth>();
+        var deflectComponent = target.GetComponentInChildren<PlayerHealth>();
         deflectComponent.RemoveDeflectionChance(Value);
     }
 }

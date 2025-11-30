@@ -9,13 +9,13 @@ public class Discount : Modifier
 
     public override void Apply(GameObject target)
     {
-        var regainComponent = target.GetComponent<DiscountAbility>();
+        var regainComponent = target.GetComponentInChildren<DiscountAbility>();
         regainComponent.IncreaseDiscountAmount(Value);
     }
 
     public override void Remove(GameObject target)
     {
-        var regainComponent = target.GetComponent<DiscountAbility>();
+        var regainComponent = target.GetComponentInChildren<DiscountAbility>();
         regainComponent.DecreaseDiscountAmount(Value);
     }
 }

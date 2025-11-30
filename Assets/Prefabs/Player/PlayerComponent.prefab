@@ -1823,8 +1823,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackAbility
   Cooldown: 0.25
-  AttackEffectObject: {fileID: 6609889003485128895, guid: 4fc6d98f9f7b2e44da09e8ca19e718a0, type: 3}
+  AttackEffectObject: {fileID: 8602056343456486120, guid: 4fc6d98f9f7b2e44da09e8ca19e718a0, type: 3}
   PlayerAnimator: {fileID: 7901399313604525615}
+  AttackDamage: 5
   AttackDuration: 0.1
 --- !u!1 &4917229939925359362
 GameObject:

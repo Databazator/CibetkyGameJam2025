@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         _isDead = false;
 
-        DOVirtual.DelayedCall(2f, () => DealDamage(200));
+        // DOVirtual.DelayedCall(2f, () => DealDamage(200));
     }
 
     public void DealDamage(float damage)
@@ -113,7 +113,8 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         //Game over happens after player death anim and death effect plays
-        DOVirtual.DelayedCall(deathSequenceLength + 0.1f, () => GameEvents.GameOver());
+        //DOVirtual.DelayedCall(deathSequenceLength + 0.1f, () => GameEvents.GameOver());
+        GameEvents.GameOver();
     }
 
     public bool TryDeflect()

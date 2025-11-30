@@ -23,7 +23,6 @@ public class UIManager : MonoBehaviour
         Initialize();
         SubscribeToEvents();
 
-        _introScreen?.gameObject.SetActive(true);
     }
 
     private void OnDisable()
@@ -146,8 +145,8 @@ public class UIManager : MonoBehaviour
     private void RegisterScreens()
     {
         _screens = new List<UIScreen> {            
-            _introScreen,            
-            _gameScreen,            
+            _introScreen,
+            _gameScreen,
             _gameOverScreen,
             _shopScreen
         };
