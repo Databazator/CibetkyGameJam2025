@@ -272,6 +272,7 @@ MonoBehaviour:
   Levels:
   - Scenes/Level 1
   - Scenes/Level 2
+  - Scenes/Level 3
   LevelIndex: 0
 --- !u!4 &497653332
 Transform:
