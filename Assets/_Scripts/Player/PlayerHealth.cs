@@ -113,8 +113,8 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         //Game over happens after player death anim and death effect plays
-        //DOVirtual.DelayedCall(deathSequenceLength + 0.1f, () => GameEvents.GameOver());
-        GameEvents.GameOver();
+        DOVirtual.DelayedCall(deathSequenceLength + 0.1f, () => GameEvents.GameOver());
+        //GameEvents.GameOver();
     }
 
     public bool TryDeflect()

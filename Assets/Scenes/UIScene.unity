@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Levels:
   - Scenes/Level 1
+  - Scenes/Level 2
   LevelIndex: 0
 --- !u!4 &497653332
 Transform:
