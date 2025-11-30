@@ -1,8 +1,8 @@
-- [ ] Inventory transition between levels
-- [ ] Level 3
-- [ ] Level 1
-- [ ] Win screen
-- [ ] Zvuky
-- [ ] VFX
-- [ ] Attack clipping through obstacles
+- [ ] (HIGH) Inventory transition between levels
+- [ ] (HIGH) Level 3
+- [ ] (MEDIUM) Level 1
+- [ ] (LOW) Win screen
+- [ ] (HIGH) Zvuky
+- [ ] (LOW) VFX
+- [ ] (MEDIUM) Attack clipping through obstacles
 - [ ] Switching?
