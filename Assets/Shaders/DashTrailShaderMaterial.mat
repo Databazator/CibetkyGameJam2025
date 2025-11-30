@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DashTrailShaderMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 235e500f2cc5e944da208b3bbcccc1de, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 47da7f5e6ffdc234496f5344005afb00, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -46,14 +46,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 0.4
+    - _BorderThickness: 0.025
     - _CameraProjectionOffsetMult: 0.1
     - _FresnelPower: 6.25
     - _InsideAlphaMult: 1
-    - _ProjectedTextureScale: 0.6
+    - _ProjectedTextureScale: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0
     m_Colors:
-    - _EdgeColor: {r: 2.2706032, g: 2.0586956, b: 1.229553, a: 1}
+    - _EdgeColor: {r: 6.923251, g: 6.5763392, b: 5.1597815, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &307655100785069873

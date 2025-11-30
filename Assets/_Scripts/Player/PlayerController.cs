@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 _lastAttackDirection;
     private Vector3 _lastDashDirection;
 
+    public Transform LookdirIndicator;
+
     public Transform LookaheadNode;
     private Vector3 _playerLookheadVector;
 
@@ -71,6 +73,8 @@ public class PlayerController : MonoBehaviour
 
         HandleAnimations();
         UpdateLookahead();
+
+        LookdirIndicator.rotation = Quaternion.LookRotation(LookDirection, Vector3.up);
     }
 
     private void UpdateLookahead()

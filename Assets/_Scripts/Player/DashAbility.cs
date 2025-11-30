@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class DashAbility : PlayerAbility
@@ -39,6 +40,7 @@ public class DashAbility : PlayerAbility
         _isDashing = true;
         _dashTimer = DashDuration;
         //Debug.Log($"Dash start");
+        _dashTrail.time = 0.3f;
         _dashTrail.emitting = true;
     }
 
@@ -46,7 +48,8 @@ public class DashAbility : PlayerAbility
     {
         _isDashing = false;
         cooldownTimer = Cooldown;
-        _dashTrail.emitting = false;
+        _dashTrail.DOTime(0f, 0.25f);
+        DOVirtual.DelayedCall(0.25f, () => _dashTrail.emitting = false);
     }
 
     // Update is called once per frame
