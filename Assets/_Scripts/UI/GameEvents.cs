@@ -14,6 +14,7 @@ public static class GameEvents
     public static Action GameUnpaused;
     public static Action LevelStarted;
     public static Action RoomCleared;
+    public static Action SceneLoaded;
 
     public static Action<Item> ItemFound;
     public static Action<Item> ItemAccepted;

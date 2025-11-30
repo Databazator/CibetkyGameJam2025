@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 356145771118512546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.156, z: 0.235}
+  m_LocalPosition: {x: 0, y: 1.966, z: 0.226}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1884,11 +1884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2aa036e6fc38d48bd425187c486349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackAbility
-  Cooldown: 0.75
+  Cooldown: 0.5
   AttackEffectObject: {fileID: 8602056343456486120, guid: 4fc6d98f9f7b2e44da09e8ca19e718a0, type: 3}
   PlayerAnimator: {fileID: 7901399313604525615}
   SpawnLocation: {fileID: 7009910706346163369}
-  AttackDamage: 5
+  AttackDamage: 20
   AttackDuration: 0.25
 --- !u!1 &4917229939925359362
 GameObject:

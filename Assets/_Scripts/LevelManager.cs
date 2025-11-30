@@ -19,16 +19,35 @@ public class LevelManager : MonoBehaviour
     {
         loadedScene = Levels[LevelIndex];
         SceneManager.LoadScene(loadedScene, LoadSceneMode.Additive);
+        GameEvents.SceneLoaded?.Invoke();
+
+        PlayerInventoryHolder _inventoryHolder = PlayerInventoryHolder.Instance;
+        if (_inventoryHolder == null)
+            Debug.LogError("Inventory Holder not present in scene");
+        else
+        {
+            _inventoryHolder.LoadPlayerInventory();
+        }
     }
 
     public void IncreaseLevel()
     {
+        PlayerInventoryHolder _inventoryHolder = PlayerInventoryHolder.Instance;
+        if (_inventoryHolder == null)
+            Debug.LogError("Inventory Holder not present in scene");
+        else
+        {
+            _inventoryHolder.SavePlayerInventory();
+        }
+
         LevelIndex++;
         if (LevelIndex >= Levels.Count)
         {
             GameEvents.GameOver.Invoke();
             return;
-        }
+        }      
+        
+
         SceneManager.UnloadSceneAsync(loadedScene);
         LoadScene();
     }
