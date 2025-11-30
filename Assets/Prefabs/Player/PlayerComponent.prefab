@@ -1439,6 +1439,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6156030473467480033}
+  - component: {fileID: 7068120210500577429}
+  - component: {fileID: 4724383094963023900}
   m_Layer: 6
   m_Name: Abilities
   m_TagString: Untagged
@@ -1463,6 +1465,34 @@ Transform:
   - {fileID: 5413524360566944654}
   m_Father: {fileID: 5590476941365651014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7068120210500577429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067298799873878629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c1b46a9614a5f47829998ba97fc386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegainAbility
+  Cooldown: 0
+  RegainAmount: 0
+--- !u!114 &4724383094963023900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067298799873878629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742743da061a9964fab41cbd0ba7c888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiscountAbility
+  Cooldown: 0
+  Discount: 0
 --- !u!1 &4094837354176847684
 GameObject:
   m_ObjectHideFlags: 0

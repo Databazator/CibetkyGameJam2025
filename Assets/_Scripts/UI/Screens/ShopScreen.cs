@@ -34,7 +34,7 @@ public class ShopScreen : UIScreen
         _currentItem = item;
         _itemNameLabel.text = item.itemName;
         _itemDescLabel.text = item.description;
-        _itemCostLabel.text = ": " + item.cost.ToString();
+        _itemCostLabel.text = ": " + item.GetCost(GameObject.FindWithTag("Player")).ToString();
         // _itemImage.sprite = item.itemIcon;
         // Change tint of background image based on rarity
         Color glowColor = Color.white;
@@ -56,8 +56,7 @@ public class ShopScreen : UIScreen
             //     glowColor = new Color(1f, 223f / 255f, 0f); // Gold
             //     break;
         }
-        // _rarityGlow.style.unityBackgroundImageTintColor = glowColor;
-        // Set glow to the item name label as well using shadow
+        // Set glow to the item name label as well using outline
         _itemNameLabel.style.unityTextOutlineColor = glowColor;
     }
 

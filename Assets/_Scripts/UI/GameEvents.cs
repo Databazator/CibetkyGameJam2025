@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class GameEvents
 {
-    public static Action<float> HealthChanged;
+    public static Action<PlayerHealth> HealthChanged;
     public static Action GameOver;
     public static Action GameStarted;
     public static Action LevelCleared;

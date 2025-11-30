@@ -1,7 +1,7 @@
 :root {
 }
 
-.unity-progress-bar__progress {
+.main-hp .unity-progress-bar__progress {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -9,20 +9,63 @@
     height: 100%;
     justify-content: space-between;
     align-self: flex-start;
-    background-color: rgba(76, 169, 0, 1);
-    opacity: 0.18;
+    background-color: rgb(255, 0, 0);
+}
+
+.bg-hp .unity-progress-bar__progress {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 100%;
+    justify-content: space-between;
+    align-self: flex-start;
+    background-color: rgb(0, 0, 0);
+}
+
+.hp-bar {
+    opacity: 0.7;
+    z-index: 10;
+}
+
+.bg-hp {
+    opacity: 0.5;
 }
 
 .unity-progress-bar__background {
-    width: 50%;
+    width: 100%;
     height: 100%;
     justify-content: flex-start;
     flex-grow: 0;
 }
 
 .healthBarMain {
-    position: relative;
+    position: absolute;
     top: 95%;
-    left: 0%;
     flex-grow: 1;
+    width: 100%;
+}
+
+.luck-bar-div {
+    position: absolute;
+    flex-grow: 1;
+    width: 100%;
+    height: 10px;
+}
+
+.luck-bar {
+    opacity: 0.7;
+    height: 100%;
+    margin-bottom:10px
+}
+
+.luck-bar-div .unity-progress-bar__progress {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 100%;
+    justify-content: space-between;
+    align-self: flex-start;
+    background-color: rgb(255, 255, 255);
 }

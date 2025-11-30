@@ -42,6 +42,19 @@ public class Item : MonoBehaviour
     public bool cleansed = false;
     public int cost;
 
+    public int GetCost(GameObject player)
+    {
+        // Get discount from player
+        var discount = 0f;
+        var discountComponent = player.GetComponentInChildren<DiscountAbility>();
+        if (discountComponent != null)
+        {
+            discount = discountComponent.Discount;
+        }
+
+        return (int)Mathf.Ceil(cost * (1 - discount));
+    }
+
     /**
      * Returns the item's description but the characters are scrambled for strange UTF symbols
      */
@@ -53,7 +66,7 @@ public class Item : MonoBehaviour
     public void ApplyEffects(GameObject player)
     {
         var playerHealth = player.GetComponent<PlayerHealth>();
-        playerHealth.DecreaseMaxHealth(cost);
+        playerHealth.DecreaseMaxHealth(GetCost(player));
         cleansed = true;
 
         foreach (var modifier in modifiers)

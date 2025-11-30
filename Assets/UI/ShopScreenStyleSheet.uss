@@ -26,9 +26,9 @@
     margin-right: 10px;
 }
 
-.shopItem:hover {
+/* .shopItem:hover {
     scale: 1.05 1.05;
-}
+} */
 
 .itemTextLabel {
     font-size: 22px;

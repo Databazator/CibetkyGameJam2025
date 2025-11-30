@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float startingMaxHealth = 100f;
     public float maxHealth = 100f;
     private float currentHealth;
+    public float CurrentHealth { get { return currentHealth; } }
 
     public float DeflectionChance = 0f; // Chance to deflect incoming damage (0 to 1)
 
@@ -37,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
-        GameEvents.HealthChanged(currentHealth / maxHealth);
+        GameEvents.HealthChanged(this);
     }
 
     public void Heal(float amount) 
@@ -47,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        GameEvents.HealthChanged(currentHealth / maxHealth);
+        GameEvents.HealthChanged(this);
     }
 
     public void DecreaseMaxHealth(float amount)
@@ -61,19 +62,19 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        GameEvents.HealthChanged(currentHealth / maxHealth);
+        GameEvents.HealthChanged(this);
     }
 
     public void IncreaseMaxHealth(float amount)
     {
         maxHealth += amount;
-        GameEvents.HealthChanged(currentHealth / maxHealth);
+        GameEvents.HealthChanged(this);
     }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        GameEvents.HealthChanged(currentHealth / maxHealth);
+        GameEvents.HealthChanged(this);
     }
 
     void Die()
