@@ -1,5 +1,7 @@
 using UnityEngine;
 using Unity.AI.Navigation;
+using DG.Tweening;
+using System.Collections.Generic;
 
 public class EnemySpawning : MonoBehaviour
 {
@@ -15,6 +17,14 @@ public class EnemySpawning : MonoBehaviour
     // In seconds
     public float SpawningDelay = 1f;
     private float lastSpawnTime = 0f;
+
+    public LayerMask SpawnValidGroundLayerMask;
+    public GameObject SpawnVFX;
+    public float SpawnDuration = 3f;
+    public float EnemyEntitySpawnDelay = 2f;
+    public float EnemyEntitySpawnHeight = 10f;
+
+    public List<AudioClip> SpawnSoundEffect;
 
     void Start()
     {
@@ -43,7 +53,40 @@ public class EnemySpawning : MonoBehaviour
         var randomAngle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
         var oneLongVectorWithAngle = new Vector3(Mathf.Cos(randomAngle), 0f, Mathf.Sin(randomAngle)).normalized;
         var randomPosition = oneLongVectorWithAngle * SpawnDistance;
-        var enemy = Instantiate(enemyPrefab, transform.position + randomPosition, Quaternion.identity);
+
+        //check if position is valid
+        RaycastHit hit;
+        Vector3 checkOrigin = new Vector3(transform.position.x + randomPosition.x, 50f, transform.position.z + randomPosition.z);
+        if (Physics.Raycast(checkOrigin, Vector3.down, out hit, 100f, SpawnValidGroundLayerMask))
+        {
+            Debug.LogWarning($"Raycast hit: {hit}, {hit.collider.gameObject.name}");
+            SpawnEnemySequence(hit.point);
+
+            remainingEnemies++;
+            toSpawn--;
+        }
+        else
+        {
+            Debug.Log("No hit on raycast");
+        }
+        
+    }
+
+    private void SpawnEnemySequence(Vector3 spawnPos)
+    {
+        GameObject beamVFX = Instantiate(SpawnVFX, spawnPos, Quaternion.identity);
+        //play audio clip
+        var effect = SpawnSoundEffect[UnityEngine.Random.Range(0, SpawnSoundEffect.Count)];
+        // Change pitch to random offset
+        this.PlayClipAt(effect,spawnPos);
+
+        DOVirtual.DelayedCall(EnemyEntitySpawnDelay, () => SpawnEnemyEntity(spawnPos));
+    }
+    private void SpawnEnemyEntity(Vector3 spawnPos)
+    {
+        
+        //inst enemy
+        var enemy = Instantiate(enemyPrefab, spawnPos + Vector3.up * EnemyEntitySpawnHeight, Quaternion.identity); ;
         // Add enemy under the spawner in the room
         enemy.transform.parent = this.transform;
         // Set room
@@ -52,9 +95,27 @@ public class EnemySpawning : MonoBehaviour
         behavior.enemyName = "Enemy_" + remainingEnemies;
         var health = enemy.GetComponent<EnemyHealth>();
         health.spawner = this;
-        
-        remainingEnemies++;
-        toSpawn--;
+    }
+
+    private void PlayClipAt(AudioClip clip, Vector3 pos)
+    {
+        var tempGO = new GameObject("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+        var aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
+        aSource.clip = clip; // define the clip
+        // set other aSource properties here, if desired
+        aSource.pitch = UnityEngine.Random.Range(-1f, 1f);
+        aSource.Play(); // start the sound
+        StartCoroutine(AudioFade.FadeOut(new Sound()
+        {
+            name = "",
+            clip = clip,
+            volume = 1f,
+            pitch = aSource.pitch,
+            loop = false,
+            source = aSource
+        }, 0.4f, Mathf.SmoothStep));
+        Destroy(tempGO, clip.length); // destroy object after clip duration
     }
 
     public void StartWave(RoomLocking locking)
