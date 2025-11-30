@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.02
   m_LinearFogStart: 0
@@ -1601,6 +1601,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2086963556424666016, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 36.329647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086963556424666016, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 34.479767
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086963556424666016, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 10.8988905
+      objectReference: {fileID: 0}
     - target: {fileID: 2818309135758018941, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1664,6 +1676,18 @@ PrefabInstance:
     - target: {fileID: 3884138627684368051, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
       propertyPath: m_LocalPosition.z
       value: -6.896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020534791418959990, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 36.329647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020534791418959990, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 34.479767
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020534791418959990, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 10.8988905
       objectReference: {fileID: 0}
     - target: {fileID: 6377898499427780978, guid: 0523fc6f8dc002b4f8547e9e8565e332, type: 3}
       propertyPath: m_Name

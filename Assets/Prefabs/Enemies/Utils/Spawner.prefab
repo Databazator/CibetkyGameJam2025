@@ -46,4 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   numberOfEnemies: 5
   enemyPrefab: {fileID: 6166636918498209274, guid: c7b8fcb682a91ae4497629079b60eb38, type: 3}
-  spawnArea: {fileID: 0}
+  SpawnDistance: 10
+  SpawningDelay: 1
+  SpawnValidGroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 129
+  SpawnVFX: {fileID: 5842104783529870287, guid: d6aad10e6e881c74ab240e70416bee74, type: 3}
+  SpawnDuration: 3
+  EnemyEntitySpawnDelay: 2
+  EnemyEntitySpawnHeight: 10
+  SpawnSoundEffect:
+  - {fileID: 8300000, guid: d949e3cfe8f72a94b8ad5cffd996e697, type: 3}

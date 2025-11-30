@@ -51,12 +51,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _InnerAlphaMult: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.4
     - _Strength: 5.4
     m_Colors:
-    - _EdgeColor: {r: 7.9067, g: 7.8022704, b: 7.8022704, a: 1}
-    - _InnerColor: {r: 0.6603774, g: 0.59824693, b: 0.44232824, a: 1}
+    - _EdgeColor: {r: 12.844468, g: 12.674822, b: 12.674822, a: 1}
+    - _InnerColor: {r: 0.9152282, g: 0.8725481, b: 0.7719, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

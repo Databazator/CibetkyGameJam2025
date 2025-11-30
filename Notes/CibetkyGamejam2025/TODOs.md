@@ -1,5 +1,5 @@
-- [ ] (HIGH) Inventory transition between levels
-- [ ] (HIGH) Level 3
+- [x] (HIGH) Inventory transition between levels
+- [x] (HIGH) Level 3
 - [ ] (MEDIUM) Level 1
 - [ ] (LOW) Win screen
 - [ ] (HIGH) Zvuky
